@@ -1,0 +1,2271 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOGOAR — K-Beauty Premium · San Juan, Argentina</title>
+  <meta name="description" content="Skincare coreano auténtico importado. Los mejores productos K-Beauty con precios más bajos que Mercado Libre. Envíos a todo Argentina desde San Juan." />
+  <meta property="og:title" content="TOGOAR — K-Beauty Premium" />
+  <meta property="og:description" content="Skincare coreano auténtico. Más barato que ML. Envíos a todo el país." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#7C3AED" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ====================================================
+       RESET & CUSTOM PROPERTIES
+       ==================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-purple:      #7C3AED;
+      --c-purple-lt:   #A855F7;
+      --c-pink:        #EC4899;
+      --c-pink-lt:     #F9A8D4;
+      --c-green-wa:    #25D366;
+      --c-cream:       #FFFAF8;
+      --c-cream-deep:  #FFF3EE;
+      --c-dark:        #0F0A1E;
+      --c-dark-mid:    #1C1035;
+      --c-text:        #1F1635;
+      --c-muted:       #6B7280;
+      --c-white:       #FFFFFF;
+      --c-border:      rgba(124,58,237,.12);
+
+      --g-hero:   linear-gradient(135deg, #0F0A1E 0%, #3B0764 38%, #7C3AED 70%, #EC4899 100%);
+      --g-accent: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      --g-wa:     linear-gradient(135deg, #25D366, #128C7E);
+
+      --shadow-sm:  0 2px 12px rgba(124,58,237,.10);
+      --shadow-md:  0 6px 24px rgba(124,58,237,.15);
+      --shadow-lg:  0 16px 48px rgba(124,58,237,.22);
+      --shadow-wa:  0 8px 28px rgba(37,211,102,.4);
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--c-cream);
+      color: var(--c-text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ====================================================
+       UTILITY CLASSES
+       ==================================================== */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section { padding: 5.5rem 1.5rem; }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      background: var(--g-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--c-text);
+      margin-bottom: .75rem;
+    }
+
+    .section-lead {
+      font-size: 1rem;
+      color: var(--c-muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .section-header { text-align: center; margin-bottom: 3rem; }
+
+    /* ====================================================
+       NAVIGATION
+       ==================================================== */
+    #mainNav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      justify-content: space-between;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(255,250,248,.82);
+      border-bottom: 1px solid var(--c-border);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    #mainNav.scrolled {
+      background: rgba(255,250,248,.97);
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      background: var(--g-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--c-text);
+      opacity: .65;
+      transition: opacity var(--transition);
+    }
+    .nav-link:hover { opacity: 1; }
+
+    .nav-ig {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--c-text);
+      opacity: .65;
+      transition: opacity var(--transition);
+    }
+    .nav-ig:hover { opacity: 1; }
+
+    .btn-nav-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .45rem 1.15rem;
+      background: var(--g-wa);
+      color: #fff;
+      border-radius: var(--radius-pill);
+      font-size: .8rem;
+      font-weight: 700;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-nav-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-wa);
+    }
+
+    /* ====================================================
+       HERO
+       ==================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 1.5rem 5rem;
+      background: var(--g-hero);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* animated dot grid overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    /* floating blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .28;
+      animation: blobFloat 7s ease-in-out infinite;
+    }
+    .blob-1 { width: 500px; height: 500px; background: #EC4899; top: -140px; right: -120px; animation-delay: 0s; }
+    .blob-2 { width: 350px; height: 350px; background: #7C3AED; bottom: 30px;  left: -80px;  animation-delay: 2.5s; }
+    .blob-3 { width: 220px; height: 220px; background: #06B6D4; top: 42%;  left: 34%;  animation-delay: 5s; }
+
+    @keyframes blobFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%      { transform: translate(0,-22px) scale(1.06); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 1.25rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.9);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+    }
+
+    .pulse-dot {
+      width: 7px; height: 7px;
+      background: #4ADE80;
+      border-radius: 50%;
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.5; transform:scale(1.6); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--c-pink-lt);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(255,255,255,.72);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .9rem 2.4rem;
+      background: #fff;
+      color: var(--c-purple);
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: .95rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.3);
+    }
+
+    .btn-outline-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .9rem 2.4rem;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,.45);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+      font-size: .95rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .btn-outline-hero:hover {
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.8);
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      display: flex;
+      gap: 3.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 4.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.14);
+    }
+
+    .hero-stat { color: #fff; }
+    .hero-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      display: block;
+      line-height: 1;
+      margin-bottom: .25rem;
+    }
+    .hero-stat .lbl {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: .6;
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .25rem;
+      color: rgba(255,255,255,.4);
+      font-size: .65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      animation: scrollBounce 2.5s ease-in-out infinite;
+    }
+    .scroll-hint svg { width: 18px; opacity: .5; }
+
+    @keyframes scrollBounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ====================================================
+       PROMO STRIP
+       ==================================================== */
+    .promo-strip {
+      background: #fff;
+      padding: 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .promo-card {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius-md);
+      background: var(--c-cream);
+      border-left: 3.5px solid transparent;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .promo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+    .promo-card:nth-child(1) { border-color: #EC4899; }
+    .promo-card:nth-child(2) { border-color: #7C3AED; }
+    .promo-card:nth-child(3) { border-color: #F59E0B; }
+    .promo-card:nth-child(4) { border-color: #10B981; }
+
+    .promo-icon { font-size: 1.9rem; flex-shrink: 0; }
+    .promo-body h4 { font-size: .87rem; font-weight: 700; margin-bottom: .2rem; }
+    .promo-body p  { font-size: .77rem; color: var(--c-muted); line-height: 1.5; }
+
+    /* ====================================================
+       CATALOG SECTION
+       ==================================================== */
+    #catalogo { background: var(--c-cream); }
+
+    /* Category tabs */
+    .tabs-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .tabs-pill {
+      display: flex;
+      gap: .35rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: .4rem;
+      background: #fff;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-btn {
+      padding: .55rem 1.35rem;
+      border: none;
+      border-radius: var(--radius-pill);
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--c-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+    .tab-btn:hover { color: var(--c-purple); }
+    .tab-btn.active {
+      background: var(--g-accent);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(168,85,247,.35);
+    }
+
+    /* Products grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+      gap: 1.5rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* ====================================================
+       PRODUCT CARD
+       ==================================================== */
+    .card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: .85rem;
+      left: .85rem;
+      z-index: 2;
+      padding: .28rem .75rem;
+      border-radius: var(--radius-pill);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+    .badge-stock {
+      background: linear-gradient(135deg, #4ADE80, #22C55E);
+      color: #fff;
+    }
+    .badge-encargo {
+      background: rgba(124,58,237,.1);
+      color: var(--c-purple);
+      border: 1px solid rgba(124,58,237,.2);
+    }
+
+    /* Product image / placeholder */
+    .card-media {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+    .card:hover .card-media > img,
+    .card:hover .card-carousel img.c-active { transform: scale(1.04); }
+    .card-carousel img { transition: transform .45s ease; }
+    .card-emoji {
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.12));
+      transition: transform .3s ease;
+    }
+    .card:hover .card-emoji { transform: scale(1.12) rotate(-4deg); }
+
+    /* Card info */
+    .card-body {
+      padding: 1.15rem 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-brand {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--c-purple);
+      margin-bottom: .25rem;
+    }
+
+    .card-name {
+      font-size: .93rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--c-text);
+      margin-bottom: .2rem;
+    }
+
+    .card-size {
+      font-size: .73rem;
+      color: var(--c-muted);
+      margin-bottom: .6rem;
+    }
+
+    .card-desc {
+      font-size: .77rem;
+      color: #718096;
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+      margin-bottom: .9rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+
+    .card-price {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .card-price .ars {
+      font-size: .65rem;
+      color: var(--c-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .card-price .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--c-text);
+    }
+
+    .btn-order {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .5rem 1.05rem;
+      background: var(--g-wa);
+      color: #fff;
+      border-radius: var(--radius-pill);
+      font-size: .76rem;
+      font-weight: 700;
+      transition: transform var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-order:hover {
+      transform: scale(1.06);
+      box-shadow: 0 5px 16px rgba(37,211,102,.35);
+    }
+
+    /* ====================================================
+       COMBOS SECTION
+       ==================================================== */
+    #combos { background: var(--c-cream-deep); }
+
+    .combos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.5rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .combo-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 2px solid transparent;
+    }
+    .combo-card::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-md) + 2px);
+      background: var(--g-accent);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .combo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .combo-card:hover::after { opacity: 1; }
+
+    .combo-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .65rem;
+    }
+
+    .combo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--c-text);
+    }
+
+    .combo-discount {
+      flex-shrink: 0;
+      padding: .25rem .7rem;
+      border-radius: var(--radius-pill);
+      background: var(--g-accent);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .combo-tagline {
+      font-size: .8rem;
+      color: var(--c-muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .combo-items {
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+      margin-bottom: 1.1rem;
+    }
+    .combo-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .8rem;
+      color: var(--c-muted);
+    }
+    .combo-item::before {
+      content: '✦';
+      font-size: .55rem;
+      color: var(--c-purple);
+      flex-shrink: 0;
+    }
+
+    .combo-divider {
+      height: 1px;
+      background: rgba(0,0,0,.06);
+      margin-bottom: 1.1rem;
+    }
+
+    .combo-pricing {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+
+    .combo-prices {
+      display: flex;
+      flex-direction: column;
+      gap: .1rem;
+    }
+
+    .price-before {
+      font-size: .75rem;
+      color: var(--c-muted);
+      text-decoration: line-through;
+    }
+    .price-now {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      background: var(--g-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .price-save {
+      font-size: .72rem;
+      font-weight: 700;
+      color: #16A34A;
+    }
+
+    /* ====================================================
+       IMPORT FORM
+       ==================================================== */
+    #importar {
+      background: linear-gradient(160deg, #0F0A1E 0%, #3B0764 55%, #1C003E 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #importar::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(236,72,153,.18), transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(124,58,237,.18), transparent 55%);
+      pointer-events: none;
+    }
+
+    #importar .section-eyebrow { color: var(--c-pink-lt); -webkit-text-fill-color: var(--c-pink-lt); }
+    #importar .section-title   { color: #fff; }
+    #importar .section-lead    { color: rgba(255,255,255,.65); }
+
+    .form-card {
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-grid.one-col { grid-template-columns: 1fr; }
+
+    .form-group { display: flex; flex-direction: column; gap: .35rem; }
+    .form-label {
+      font-size: .78rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+    }
+    .form-control {
+      padding: .72rem 1rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .form-control::placeholder { color: rgba(255,255,255,.3); }
+    .form-control:focus { border-color: rgba(168,85,247,.7); }
+    .form-control option { background: #1a0536; }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 1rem;
+      background: var(--g-accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-pill);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      letter-spacing: .3px;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(168,85,247,.45);
+    }
+
+    /* ====================================================
+       CONTACT SECTION
+       ==================================================== */
+    #contacto { background: var(--c-cream-deep); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.25rem;
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-icon { font-size: 2.4rem; }
+    .contact-lbl {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--c-muted);
+    }
+    .contact-val {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--c-text);
+    }
+
+    /* ====================================================
+       FOOTER
+       ==================================================== */
+    footer {
+      background: var(--c-dark);
+      padding: 3.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      background: var(--g-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .4rem;
+    }
+    .footer-tagline {
+      font-size: .8rem;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .footer-links a {
+      font-size: .8rem;
+      color: rgba(255,255,255,.45);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: rgba(255,255,255,.85); }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      font-size: .73rem;
+      color: rgba(255,255,255,.3);
+      line-height: 1.8;
+    }
+
+    /* ====================================================
+       FLOATING WHATSAPP
+       ==================================================== */
+    .wa-fab {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      z-index: 998;
+      width: 58px; height: 58px;
+      background: var(--g-wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-wa);
+      font-size: 1.65rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: fabPulse 3.5s ease-in-out infinite;
+    }
+    .wa-fab:hover {
+      transform: scale(1.12);
+      box-shadow: 0 14px 36px rgba(37,211,102,.55);
+      animation: none;
+    }
+    @keyframes fabPulse {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+
+    /* ====================================================
+       RESPONSIVE
+       ==================================================== */
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      #mainNav { padding: 0 1rem; }
+      .nav-link { display: none; }
+      .nav-ig { display: none; }
+
+      .hero-stats { gap: 2rem; }
+
+      .tabs-pill { gap: .2rem; }
+      .tab-btn { padding: .48rem 1rem; font-size: .76rem; }
+
+      .form-card { padding: 1.75rem 1.25rem; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ====================================================
+       CAROUSEL
+       ==================================================== */
+    .card-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .card-carousel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      border-radius: 0;
+    }
+    .card-carousel img.c-active {
+      display: block;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.45);
+      transition: background .2s, transform .2s;
+    }
+    .carousel-dot.c-active {
+      background: #fff;
+      transform: scale(1.25);
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.32);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .2s, background .2s;
+      backdrop-filter: blur(4px);
+    }
+    .card-media:hover .carousel-btn { opacity: 1; }
+    .carousel-btn:hover { background: rgba(0,0,0,.55); }
+    .carousel-prev { left: 7px; }
+    .carousel-next { right: 7px; }
+
+    @media (max-width: 640px) {
+      .carousel-btn { opacity: 1; width: 26px; height: 26px; font-size: .85rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">TOGOAR</a>
+  <div class="nav-right">
+    <a class="nav-link" href="#catalogo">Catálogo</a>
+    <a class="nav-link" href="#combos">Combos</a>
+    <a class="nav-link" href="#importar">Importar</a>
+    <a class="nav-ig" href="https://instagram.com/togoar" target="_blank" rel="noopener">
+      <span>📷</span> @togoar
+    </a>
+    <a class="btn-nav-wa"
+       href="https://wa.me/5492646291571?text=Hola!%20Vi%20el%20cat%C3%A1logo%20de%20TOGOAR%20y%20quiero%20consultar%20%F0%9F%8C%B8"
+       target="_blank" rel="noopener">
+      💬 Escribinos
+    </a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      Tienda activa · Envíos a todo el país
+    </div>
+
+    <h1>K-Beauty <em>auténtico</em><br>directo a vos</h1>
+
+    <p class="hero-sub">
+      Skincare coreano importado, 100% original. Los mejores productos del momento
+      con precios más bajos que Mercado Libre.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#catalogo" class="btn-primary">Ver catálogo completo →</a>
+      <a class="btn-outline-hero"
+         href="https://wa.me/5492646291571?text=Hola%20TOGOAR!%20Quiero%20hacer%20un%20pedido%20%F0%9F%8C%B8"
+         target="_blank" rel="noopener">
+        💬 Consultar por WhatsApp
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">202+</span>
+        <span class="lbl">Productos disponibles</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">15</span>
+        <span class="lbl">Marcas premium</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">10%</span>
+        <span class="lbl">Menos que ML</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">🇰🇷</span>
+        <span class="lbl">100% original</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    Scroll
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROMO STRIP
+     ============================================================ -->
+<div class="promo-strip">
+  <div class="promo-grid">
+    <div class="promo-card">
+      <span class="promo-icon">🚚</span>
+      <div class="promo-body">
+        <h4>Envío gratis en San Juan</h4>
+        <p>Comprando 2 o más productos en San Juan capital.</p>
+      </div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-icon">☀️</span>
+      <div class="promo-body">
+        <h4>3 Sun Sticks Tocobo</h4>
+        <p>El tercero al 50% del precio. ¡No te lo pierdas!</p>
+      </div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-icon">🛍️</span>
+      <div class="promo-body">
+        <h4>Primera compra</h4>
+        <p>5% adicional sobre cualquier combo en tu primer pedido.</p>
+      </div>
+    </div>
+    <div class="promo-card">
+      <span class="promo-icon">📸</span>
+      <div class="promo-body">
+        <h4>Story en Instagram</h4>
+        <p>Mostrá tu producto en @togoar y 10% off en la próxima compra.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CATALOG
+     ============================================================ -->
+<section class="section" id="catalogo">
+  <div class="section-header">
+    <span class="section-eyebrow">✦ Catálogo completo</span>
+    <h2 class="section-title">Nuestros productos</h2>
+    <p class="section-lead">Los que tienen <strong style="color:#22C55E">✅ EN STOCK</strong> están disponibles de inmediato en San Juan. Los demás se gestionan por encargo.</p>
+  </div>
+
+  <!-- Category tabs -->
+  <div class="tabs-wrap">
+    <div class="tabs-pill" id="categoryTabs">
+      <button class="tab-btn active" data-cat="todos">Todos</button>
+      <button class="tab-btn" data-cat="serums">Serums &amp; Esencias</button>
+      <button class="tab-btn" data-cat="solar">Protección Solar</button>
+      <button class="tab-btn" data-cat="limpieza">Limpieza</button>
+      <button class="tab-btn" data-cat="hidratantes">Hidratantes</button>
+      <button class="tab-btn" data-cat="makeup">Makeup</button>
+      <button class="tab-btn" data-cat="ojos">Ojos</button>
+      <button class="tab-btn" data-cat="lips">Labios</button>
+    </div>
+  </div>
+
+  <!-- Products grid -->
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ============================================================
+     COMBOS
+     ============================================================ -->
+<section class="section" id="combos">
+  <div class="section-header">
+    <span class="section-eyebrow">✦ Kits especiales</span>
+    <h2 class="section-title">Combos &amp; Rutinas</h2>
+    <p class="section-lead">Armá tu rutina completa y ahorrá hasta el 10% respecto a los precios individuales.</p>
+  </div>
+  <div class="combos-grid" id="combosGrid"></div>
+</section>
+
+<!-- ============================================================
+     IMPORT FORM
+     ============================================================ -->
+<section class="section" id="importar">
+  <div style="position:relative;z-index:1;">
+    <div class="section-header">
+      <span class="section-eyebrow">✦ Servicio exclusivo</span>
+      <h2 class="section-title">¿Buscás algo específico?</h2>
+      <p class="section-lead">Importamos lo que necesitás. Completá el formulario y te cotizamos sin compromiso en menos de 24 h.</p>
+    </div>
+
+    <form class="form-card" id="importForm" novalidate>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Nombre completo *</label>
+          <input class="form-control" type="text" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp / Teléfono</label>
+          <input class="form-control" type="tel" name="telefono" placeholder="+54 9 ..." />
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Email *</label>
+          <input class="form-control" type="email" name="email" placeholder="tu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tipo de consulta</label>
+          <select class="form-control" name="tipo">
+            <option value="">Seleccioná...</option>
+            <option value="Importación personalizada">Importación personalizada</option>
+            <option value="Compra mayorista">Compra mayorista</option>
+            <option value="Producto o marca específica">Producto o marca específica</option>
+            <option value="Armado de rutina">Armado de rutina de skincare</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-grid one-col">
+        <div class="form-group">
+          <label class="form-label">¿Qué producto o marca buscás?</label>
+          <input class="form-control" type="text" name="producto"
+            placeholder="Ej: COSRX Snail Mucin 96%, LANEIGE Lip Sleeping Mask, Peach Slices..." />
+        </div>
+      </div>
+
+      <div class="form-grid one-col">
+        <div class="form-group">
+          <label class="form-label">Mensaje adicional</label>
+          <textarea class="form-control" name="mensaje" rows="3"
+            placeholder="Contanos más: cantidad, urgencia, presupuesto..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Enviar consulta ✦
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section" id="contacto">
+  <div class="section-header">
+    <span class="section-eyebrow">✦ Contacto</span>
+    <h2 class="section-title">Hablemos</h2>
+    <p class="section-lead">Estamos en San Juan, Argentina. Respondemos rápido — siempre.</p>
+  </div>
+
+  <div class="contact-grid">
+    <a class="contact-card"
+       href="https://wa.me/5492646291571?text=Hola%20TOGOAR!%20%F0%9F%8C%B8"
+       target="_blank" rel="noopener">
+      <span class="contact-icon">💬</span>
+      <span class="contact-lbl">WhatsApp</span>
+      <span class="contact-val">+54 9 2646 291571</span>
+    </a>
+
+    <a class="contact-card" href="mailto:info@togoar.com">
+      <span class="contact-icon">✉️</span>
+      <span class="contact-lbl">Email</span>
+      <span class="contact-val">info@togoar.com</span>
+    </a>
+
+    <a class="contact-card"
+       href="https://instagram.com/togoar"
+       target="_blank" rel="noopener">
+      <span class="contact-icon">📷</span>
+      <span class="contact-lbl">Instagram</span>
+      <span class="contact-val">@togoar</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <span class="footer-logo">TOGOAR</span>
+  <p class="footer-tagline">K-Beauty Premium · San Juan, Argentina · Importado 🇰🇷</p>
+  <div class="footer-links">
+    <a href="#catalogo">Catálogo</a>
+    <a href="#combos">Combos</a>
+    <a href="#importar">Importaciones</a>
+    <a href="mailto:info@togoar.com">info@togoar.com</a>
+    <a href="https://instagram.com/togoar" target="_blank">@togoar</a>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 TOGOAR · Todos los precios en pesos argentinos (ARS) · IVA incluido</p>
+    <p>Octavio Gomez · San Juan, Argentina</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-fab"
+   href="https://wa.me/5492646291571?text=Hola!%20Vi%20el%20cat%C3%A1logo%20de%20TOGOAR%20y%20quiero%20consultar%20%F0%9F%8C%B8"
+   target="_blank" rel="noopener"
+   title="Contactar por WhatsApp">
+  💬
+</a>
+
+<!-- ============================================================
+     JAVASCRIPT — DATA & RENDER
+     ============================================================ -->
+<script>
+  /* ── CONFIGURATION ──────────────────────────────────────────
+     Google Sheet (Catálogo público): 1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28
+     Google Sheet (Precios internos): 1zQi9Tt7GzDeCoXOmIq3Ej8k4XwPx6BokNz8SF3UBd2g
+
+     Para activar la sincronización automática con Google Sheets:
+       1. Abrí el sheet del catálogo en Google Drive
+       2. Archivo → Compartir → Publicar en la web
+       3. Seleccioná "Hoja1" y formato "Valores separados por comas (.csv)"
+       4. Hacé clic en "Publicar" → copiá la URL generada
+       5. Pegala en SHEETS_CSV_URL aquí abajo
+
+     Alternativa rápida (sin publicar): compartí el sheet como
+     "Cualquier persona con el enlace puede ver" y usá esta URL:
+     https://docs.google.com/spreadsheets/d/1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28/export?format=csv&gid=0
+  ─────────────────────────────────────────────────────────── */
+  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRg56MwU9k7Ni6GA5gOlhPeWwnQ2F463UZSYWu6sw4Z32e7-p4NptsvI8QVFFjHdy5ay5IxdX_9rz7Y/pub?gid=1079902904&single=true&output=csv';
+
+  const WA_NUMBER = '5492646291571';
+
+  /* ── PRODUCT DATA (fallback embebido) ────────────────────── */
+  const PRODUCTS = [
+  {sku:"BJ001",brand:"Beauty of Joseon",name:"Calming Serum: Green tea + Panthenol",size:"30ml",cat:"serums",
+   desc:"Sérum calmante ultraligero con 59% de extracto de té verde y pantenol. Calma rojeces, refuerza la barrera cutánea y aporta hidratación profunda sin sensación grasa. Ideal para pieles sensibles.",imgs:["https://beautyofjoseon.com/cdn/shop/files/001_61356454-461b-424d-8ef7-32589fb88d92.png", "https://beautyofjoseon.com/cdn/shop/files/002.png", "https://beautyofjoseon.com/cdn/shop/files/003.png"],
+   price:43900,inStock:true,g1:"#faebd7",g2:"#c9a96e"},
+  {sku:"BJ005",brand:"Beauty of Joseon",name:"Ginseng Essence Water",size:"150ml",cat:"serums",
+   desc:"Agua esencia con ginseng rojo coreano y 32 botánicos milenarios. Aumenta la firmeza, elasticidad y luminosidad desde la primera aplicación. El secreto de la piel de porcelana.",imgs:["https://beautyofjoseon.com/cdn/shop/files/ginseng-essence-water-1-front.webp", "https://beautyofjoseon.com/cdn/shop/files/ginseng-essence-water-3.webp", "https://beautyofjoseon.com/cdn/shop/files/ginseng-essence-water-4.webp"],
+   price:52400,inStock:true,g1:"#faebd7",g2:"#c9a96e"},
+  {sku:"BJ003",brand:"Beauty of Joseon",name:"Glow Deep Serum: Rice + Arbutin",size:"30ml",cat:"serums",
+   desc:"Sérum iluminador de segunda generación con agua de arroz fermentado y arbutina. Aclara manchas, unifica el tono y multiplica la luminosidad. El favorito para el glass skin.",imgs:["https://beautyofjoseon.com/cdn/shop/files/glow-deep-serum-rice-alpha-arbutin-1-front.webp", "https://beautyofjoseon.com/cdn/shop/files/glow-deep-serum-rice-alpha-arbutin-3.webp", "https://beautyofjoseon.com/cdn/shop/files/glow-deep-serum-rice-alpha-arbutin-4.webp"],
+   price:44600,inStock:true,g1:"#faebd7",g2:"#c9a96e"},
+  {sku:"BJ002",brand:"Beauty of Joseon",name:"Glow Serum: Propolis + Niacinamide",size:"30ml",cat:"serums",
+   desc:"Sérum iluminador con propóleo de abeja y niacinamida al 2%. Unifica el tono, minimiza poros y aporta ese glow vítreo del K-Beauty. Textura tipo miel que se absorbe al instante.",imgs:["https://beautyofjoseon.com/cdn/shop/files/glow-serum-propolis-niacinamide-1-front.webp", "https://beautyofjoseon.com/cdn/shop/files/glow-serum-propolis-niacinamide-3.webp", "https://beautyofjoseon.com/cdn/shop/files/glow-serum-propolis-niacinamide-4.webp"],
+   price:46300,inStock:true,g1:"#faebd7",g2:"#c9a96e"},
+  {sku:"BJ004",brand:"Beauty of Joseon",name:"Revive Serum: Ginseng + Snail Mucin",size:"30ml",cat:"serums",
+   desc:"Sérum revitalizante con ginseng rojo coreano y mucina de caracol. Firmeza, luminosidad y reparación profunda en un solo paso. Piel visiblemente más joven y luminosa.",imgs:["https://beautyofjoseon.com/cdn/shop/files/revive-serum-ginseng-snail-mucin-1-front.webp", "https://beautyofjoseon.com/cdn/shop/files/revive-serum-ginseng-snail-mucin-3.webp", "https://beautyofjoseon.com/cdn/shop/files/revive-serum-ginseng-snail-mucin-4.webp"],
+   price:43600,inStock:false,g1:"#faebd7",g2:"#c9a96e"},
+  {sku:"BE006",brand:"Benton",name:"Air Fit UV Defense Sun Cream",size:"50ml",cat:"solar",
+   desc:"Protector solar ligero con TECA y niacinamida. Acabado natural sin residuo blanco. SPF50+ PA++++ que cuida la piel mientras la protege del sol.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:41100,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE002",brand:"Benton",name:"Aloe BHA Skin Toner",size:"200ml",cat:"serums",
+   desc:"Tónico con más del 80% de aloe vera, BHA al 0.5% y mucina de caracol. Controla el sebo, afina la textura y deja la piel increíblemente suave e hidratada.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg", "https://cafe24img.poxo.com/bentoncos/web/product/big/202405/a6ee3abb2ae3d7beaae3472109ce133a.jpg"],
+   price:36000,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE005",brand:"Benton",name:"Aloe Real Cool Soothing Gel",size:"300ml",cat:"hidratantes",
+   desc:"Gel calmante multiuso con aloe vera al 97%. Ideal post-sol, para calmar rojeces o como hidratante ligera de verano. Refrescante y versátil.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:22600,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE008",brand:"Benton",name:"Deep Green Tea Cleansing Foam",size:"120g",cat:"limpieza",
+   desc:"Limpiador en espuma con 60% de extracto de té verde fermentado. Limpieza profunda y antioxidante que equilibra el sebo sin irritar ni resecar.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:30800,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE009",brand:"Benton",name:"Deep Green Tea Lotion",size:"120ml",cat:"hidratantes",
+   desc:"Emulsión hidratante con té verde fermentado. Textura sedosa que se absorbe rápido. Hidratación ligera + antioxidantes + efecto calmante en un solo paso.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:33000,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE010",brand:"Benton",name:"Deep Green Tea Serum",size:"35ml",cat:"serums",
+   desc:"Sérum concentrado de té verde con niacinamida y pantenol. Antioxidante potente que combate el envejecimiento prematuro y unifica el tono de forma visible.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:33900,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE004",brand:"Benton",name:"Deep Green Tea Toner",size:"150ml",cat:"serums",
+   desc:"Tónico esencia con 60% de extracto de té verde fermentado. Rico en antioxidantes que tratan la piel en profundidad mientras la hidratan y equilibran el sebo.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:34200,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE001",brand:"Benton",name:"Goodbye Redness Centella Gel",size:"",cat:"hidratantes",
+   desc:"Gel-crema calmante con centella asiática y niacinamida al 2%. Reduce rojeces, previene el acné y fortalece la barrera cutánea. Textura refrescante, perfecta para pieles reactivas.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:36500,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BE007",brand:"Benton",name:"Skin Fit Mineral Sun Cream",size:"50ml",cat:"solar",
+   desc:"Protector solar mineral de acabado seco y mate. Con óxido de zinc para pieles sensibles. SPF50+ PA++++ sin obstruir poros.",imgs:["https://cafe24img.poxo.com/bentoncos/web/product/big/202405/3cc57c9962caeaad86e1440ed337740f.jpg"],
+   price:41100,inStock:false,g1:"#d1fae5",g2:"#059669"},
+  {sku:"BD001",brand:"Biodance",name:"Bio-Collagen Real Deep Mask",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hidrogel con colágeno real que se funde con la piel en 1 hora. Tratamiento hidratante intensivo. Piel plumped y radiante al instante.",imgs:["https://biodance.co.kr/web/product/medium/202606/bf01be0f549022ed55e57086f136d29c.png"],
+   price:15000,inStock:false,g1:"#fce7f3",g2:"#ec4899"},
+  {sku:"BD003",brand:"Biodance",name:"Cera-nol Gel Toner Pads",size:"60Pads",cat:"serums",
+   desc:"Pads de tónico en gel con ceramidas y noni. Alisar, tonificar y activar la barrera cutánea en un solo paso. 60 unidades de uso diario.",imgs:["https://biodance.co.kr/web/product/medium/202606/bf01be0f549022ed55e57086f136d29c.png"],
+   price:67000,inStock:false,g1:"#fce7f3",g2:"#ec4899"},
+  {sku:"BD004",brand:"Biodance",name:"Collagen Gel Toner Pads",size:"60Pads",cat:"serums",
+   desc:"Pads de tónico con colágeno puro. Firman, hidratan y suavizan la piel en cada aplicación. Formato doble faz: limpieza suave + activación de barrera.",imgs:["https://biodance.co.kr/web/product/tiny/202606/2a67400d3c876d406d50d4588046f01f.png"],
+   price:67000,inStock:false,g1:"#fce7f3",g2:"#ec4899"},
+  {sku:"BD002",brand:"Biodance",name:"Hydro Cera-nol Real Deep Mask",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hidrogel con ceramidas y noni. Hidratación profunda que restaura la barrera cutánea dañada. El complemento perfecto del Bio-Collagen Mask.",imgs:["https://biodance.co.kr/web/product/medium/202606/95782a4f9e7dcb016bf3f1d52bc0ec14.jpg"],
+   price:15000,inStock:false,g1:"#fce7f3",g2:"#ec4899"},
+  {sku:"CM012",brand:"Celimax",name:"Derma Nature Fresh Blackhead Jojoba Cleansing Oil",size:"150ml",cat:"limpieza",
+   desc:"Aceite limpiador de jojoba que disuelve el maquillaje más resistente sin obstruir poros. Limpieza profunda con acabado fresco, no graso.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:43300,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM018",brand:"Celimax",name:"Dual Barrier Creamy Toner",size:"",cat:"serums",
+   desc:"Tónico cremoso con doble barrera de hidratación. Activa y fortalece la barrera cutánea desde el primer paso de la rutina.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:50500,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM016",brand:"Celimax",name:"Ji Woo Gae Heartleaf BHA Peeling Pad",size:"",cat:"serums",
+   desc:"Pads exfoliantes con BHA y extracto de corazón de hoja. Afina la textura, desobstruye poros y aporta luminosidad. Uso 2-3 veces por semana.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:46400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM001",brand:"Celimax",name:"NONI Acne Bubble Cleanser -",size:"155ml",cat:"limpieza",
+   desc:"Limpiador en espuma con extracto de noni y BHA. Limpia en profundidad, controla el sebo y trata el acné sin irritar. Piel limpia y equilibrada.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:45400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM002",brand:"Celimax",name:"NONI Energy Ampoule -",size:"30ml",cat:"serums",
+   desc:"Ampolla energizante con extracto de noni de alta pureza. Revitaliza pieles apagadas, aporta luminosidad inmediata y activa la reparación celular nocturna.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:46400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM015",brand:"Celimax",name:"NONI Energy Ampoule -",size:"50ml",cat:"serums",
+   desc:"Ampolla de noni en tamaño full (50ml). El tratamiento de luminosidad más potente de Celimax. Resultados visibles desde la primera semana.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:71100,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM003",brand:"Celimax",name:"NONI Energy Repair Cream -",size:"50ml",cat:"hidratantes",
+   desc:"Crema reparadora con noni y extractos botánicos. Hidratación intensa, reparación de la barrera y luminosidad duradera. Piel visiblemente más sana.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:53600,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM004",brand:"Celimax",name:"NONI Moisture Balancing Toner -",size:"150ml",cat:"serums",
+   desc:"Tónico balanceador con extracto de noni al 75%. Hidrata, controla el sebo y prepara la piel para los siguientes pasos de la rutina.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:50500,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM005",brand:"Celimax",name:"NONI Refresh Clay Mask",size:"120ml",cat:"hidratantes",
+   desc:"Mascarilla de arcilla con extracto de noni. Limpia los poros en profundidad, controla el exceso de sebo y aporta luminosidad instantánea.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:44300,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM013",brand:"Celimax",name:"Oil Control Light Sunscreen",size:"40ml",cat:"solar",
+   desc:"Protector solar oil-control de acabado mate ultra-ligero. SPF50+ PA++++ que controla el brillo durante todo el día. Ideal para pieles mixtas y grasas.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:50500,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM019",brand:"Celimax",name:"Oil Control Mattifying Sun Stick",size:"",cat:"solar",
+   desc:"Stick solar oil-control de acabado mate. SPF50+ PA++++ en formato portátil para retoques durante el día. Sin brillo ni sensación grasa.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:45400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM010",brand:"Celimax",name:"Pore + Dark Spot Brightening Care Sunscreen",size:"50ml",cat:"solar",
+   desc:"Protector solar que ilumina manchas y minimiza poros mientras protege del sol. SPF50+ PA++++ con acabado luminoso natural.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:50500,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM009",brand:"Celimax",name:"Pore + Dark Spot Brightening Cream",size:"35ml",cat:"hidratantes",
+   desc:"Crema de día que ilumina manchas, minimiza poros y protege con niacinamida. Hidratación ligera + efecto brightening + poros invisibles.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:50500,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM008",brand:"Celimax",name:"Pore + Dark Spot Brightening Serum",size:"30ml",cat:"serums",
+   desc:"Sérum concentrado que ilumina manchas y minimiza poros con niacinamida y extractos brightening. Textura ligera de rápida absorción.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:56700,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM007",brand:"Celimax",name:"The Real CICA Soothing Cream",size:"50ml",cat:"hidratantes",
+   desc:"Crema calmante con centella asiática real. Calma, hidrata y regenera pieles sensibles o irritadas. Fórmula sin irritantes, apta para pieles delicadas.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:45400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM006",brand:"Celimax",name:"The Real NONI Starter Kit",size:"3 minis",cat:"serums",
+   desc:"Kit de 3 minis de la línea NONI: ampoule + crema + tónico. El starter kit ideal para descubrir la magia del noni coreano en la piel.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:45400,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM017",brand:"Celimax",name:"The Vita A Retinol Shot Tightening Serum",size:"",cat:"serums",
+   desc:"Sérum de retinol que firma, reduce arrugas y mejora la textura en pocas semanas. Fórmula estabilizada con menor riesgo de irritación.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:56700,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"CM011",brand:"Celimax",name:"The Vita-A Retinal Shot Tightening Booster",size:"15ml",cat:"serums",
+   desc:"Booster de retinal de alta concentración. Trata arrugas y manchas desde la primera noche. Para pieles que quieren resultados visibles rápidos.",imgs:["https://hypercape-build.s3.ap-northeast-2.amazonaws.com/images/product/1770173861217_b464731c6c7d4fd793b4581f4901aee2.jpg"],
+   price:56700,inStock:false,g1:"#fef9c3",g2:"#f59e0b"},
+  {sku:"FW008",brand:"Fwee",name:"3D Voluming gloss 70% 02 Coral Sorbet -",size:"5.3g",cat:"makeup",
+   desc:"Gloss voluminizador 3D con 70% de aceites nutritivos. Labios más llenos y luminosos sin relleno. Coral Sorbet: coral vibrante y jugoso.",imgs:["https://fwee.us/cdn/shop/files/US_2508_3D___20__30.png", "https://fwee.us/cdn/shop/files/US_2508_3D___13__70.jpg", "https://fwee.us/cdn/shop/files/US_2508_3D___14__70.jpg"],
+   price:45300,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW009",brand:"Fwee",name:"3D Voluming gloss 70% 03 Pink Candy -",size:"5.3g",cat:"makeup",
+   desc:"Gloss 3D con efecto plumping. Fórmula nutritiva de larga duración. Pink Candy: rosa suave y luminoso, el shade más versátil.",imgs:["https://fwee.us/cdn/shop/files/US_2508_3D___20__30.png", "https://fwee.us/cdn/shop/files/US_2508_3D___15__70.jpg", "https://fwee.us/cdn/shop/files/US_2508_3D___13__70.jpg"],
+   price:45300,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW010",brand:"Fwee",name:"3D Voluming gloss 70% 04 Red Aengdu -",size:"5.3g",cat:"makeup",
+   desc:"Gloss 3D con 70% de aceites. Brillo de espejo y comodidad todo el día. Red Aengdu: rojo cereza vibrante y apetecible.",imgs:["https://fwee.us/cdn/shop/files/US_2508_3D___20__30.png", "https://fwee.us/cdn/shop/files/US_2508_3D___16__70.jpg", "https://fwee.us/cdn/shop/files/US_2508_3D___14__70.jpg"],
+   price:45300,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW011",brand:"Fwee",name:"3D Voluming gloss 70% 05 Move Currant -",size:"5.3g",cat:"makeup",
+   desc:"Gloss 3D voluminizador. Edición limitada. Move Currant: uva/ciruela profundo con toques fríos. Look K-drama garantizado.",imgs:["https://fwee.us/cdn/shop/files/US_2508_3D___20__30.png", "https://fwee.us/cdn/shop/files/US_2508_3D___02__70.jpg", "https://fwee.us/cdn/shop/files/US_2508_3D___15__70.jpg"],
+   price:45300,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW001",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot MV04 Slayyy -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de la marca viral Fwee. Acabado difuminado ultra-natural estilo flushed. Tonalidad MV04 Slayyy: malva terroso cálido.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/ND04.jpg", "https://fwee.us/cdn/shop/files/ND05.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW002",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot MV05 Boss -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Acabado pudding suave y difuminado. Tonalidad MV05 Boss: malva rosado con toques fríos.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/US_2503___Hover_fd6dbe83-b683-48fe-82b3-30335e5fb673.png", "https://fwee.us/cdn/shop/files/ND04.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW003",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot ND04 My -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Fórmula de pudding suave que se difumina solo. Tonalidad ND04 My: nude terroso cálido.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/US_619501ce-5f17-4ddb-93f3-8a1b6196ed9b.jpg", "https://fwee.us/cdn/shop/files/ND04.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW004",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot ND05 Be -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Acabado difuminado ultra-natural. Tonalidad ND05 Be: nude frío con subtono rosado.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/ND04.jpg", "https://fwee.us/cdn/shop/files/ND05.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW005",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot PK05 Sth -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Edición limitada. Tonalidad PK05 Sth: rosa vibrante fresco. Para looks de primavera y verano.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/US_c8f9f437-00f5-4989-a14b-588b02bc0fac.jpg", "https://fwee.us/cdn/shop/files/ND04.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW006",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot RS01 Feeln -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Acabado pudding suave. Tonalidad RS01 Feeln: rojo frambuesa profundo. Elegante y atemporal.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/ND04.jpg", "https://fwee.us/cdn/shop/files/US_c05cccf6-0e24-4dda-84ca-d0143d8c8354.jpg"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"FW007",brand:"Fwee",name:"Lip&Cheek Blurry Pudding Pot RS02 Lyrics -",size:"5g",cat:"makeup",
+   desc:"Rubor y labial en uno de Fwee. Textura pudding que se funde con la piel. Tonalidad RS02 Lyrics: rojo rosado cálido muy favorecedor.",imgs:["https://fwee.us/cdn/shop/files/US_2503_7ec77fc5-4b46-4f52-9cfa-c5cb947a638b.png", "https://fwee.us/cdn/shop/files/ND05.jpg", "https://fwee.us/cdn/shop/files/US_2503___Hover_fd6dbe83-b683-48fe-82b3-30335e5fb673.png"],
+   price:55200,inStock:false,g1:"#ffe4e6",g2:"#f43f5e"},
+  {sku:"HH018",brand:"Haru Haru Wonder",name:"Black Bamboo Daily Smoothing Body Oil -",size:"200ml",cat:"hidratantes",
+   desc:"Aceite corporal con bambú negro. Nutrición profunda e instantánea para un cuerpo suave, luminoso e hidratado todo el día.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:50400,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH008",brand:"Haru Haru Wonder",name:"Black Bamboo Mist",size:"150ml",cat:"serums",
+   desc:"Mist hidratante con bambú negro en tamaño 150ml. Refresca, hidrata y fija el maquillaje durante todo el día.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:42800,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH009",brand:"Haru Haru Wonder",name:"Black Bamboo Mist",size:"80ml",cat:"serums",
+   desc:"Mist hidratante con bambú negro compacto 80ml. Perfecto para llevar en el bolso y refrescar la piel en cualquier momento.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:30800,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH004",brand:"Haru Haru Wonder",name:"Black Rice Bakuchiol Eye Cream",size:"20ml",cat:"ojos",
+   desc:"Contorno de ojos con arroz negro y bakuchiol. Trata las arrugas, ojeras y pérdida de firmeza de la delicada zona periocular.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:43200,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH002",brand:"Haru Haru Wonder",name:"Black Rice Hyaluronic Cream (50ml)",size:"50ml",cat:"hidratantes",
+   desc:"Crema con arroz negro y ácido hialurónico. Hidratación profunda de larga duración que restaura la suavidad, firmeza y elasticidad.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_rice_10_hyaluronic_cream_50ml_42a7acc7-b901-4139-a6f6-5015f9a93f69.jpg", "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/10_50ml_-_1_1f952f4f-9cd4-4b40-a37e-f44dfbd5de01.jpg"],
+   price:44200,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH010",brand:"Haru Haru Wonder",name:"Black Rice Hyaluronic Cream Unscented",size:"",cat:"hidratantes",
+   desc:"Crema hialurónica con arroz negro sin fragancia. Ideal para pieles sensibles que quieren los beneficios del arroz negro sin irritantes.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/black_rice_10_hyaluronic_cream_50ml_42a7acc7-b901-4139-a6f6-5015f9a93f69.jpg"],
+   price:44200,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH001",brand:"Haru Haru Wonder",name:"Black Rice Hyaluronic Toner FOAF",size:"",cat:"serums",
+   desc:"Tónico hialurónico con extracto de arroz negro antioxidante. Hidratación profunda, firmeza y luminosidad desde el primer paso de la rutina.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg", "https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_b369d968-21c4-4196-82db-851773a5a49c.jpg"],
+   price:39100,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH005",brand:"Haru Haru Wonder",name:"Black Rice Moisture 5.5 Soft Cleansing Gel",size:"",cat:"limpieza",
+   desc:"Gel limpiador suave con arroz negro y ácido hialurónico. Limpieza profunda sin resecar, ideal para pieles sensibles y secas.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:33900,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH006",brand:"Haru Haru Wonder",name:"Black Rice Moisture Deep Cleansing Oil",size:"",cat:"limpieza",
+   desc:"Aceite limpiador con arroz negro. Disuelve maquillaje y protector solar, hidrata y deja la piel limpia sin sensación grasa.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:49300,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH011",brand:"Haru Haru Wonder",name:"Black Rice Moisture Deep Cleansing Oil - MINI -",size:"30ml",cat:"limpieza",
+   desc:"Mini aceite limpiador con arroz negro (30ml). El hit de limpieza de Haru Haru Wonder en tamaño de viaje. Disuelve todo sin esfuerzo.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:15400,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH017",brand:"Haru Haru Wonder",name:"Black Rice Night Knight Retinol Serum -",size:"20ml",cat:"serums",
+   desc:"Sérum de noche con retinol y extracto de arroz negro. Estimula la renovación celular, reduce arrugas y mejora la textura mientras dormís.",imgs:["https://haruharuwonder.com/cdn/shop/files/1736390194962_6d8a5fbdc1e642bbb91a1e6854a3fe9e.jpg", "https://haruharuwonder.com/cdn/shop/files/53896eee67f6838d97c2387e3251c1ba.jpg"],
+   price:45500,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH013",brand:"Haru Haru Wonder",name:"Black Rice Probiotics Barrier Essence -",size:"120ml",cat:"serums",
+   desc:"Esencia de probióticos con arroz negro tamaño full (120ml). Tratamiento completo de la barrera cutánea y la microbiota de la piel.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:55100,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH012",brand:"Haru Haru Wonder",name:"Black Rice Probiotics Barrier Essence -",size:"30ml",cat:"serums",
+   desc:"Esencia de probióticos con arroz negro (mini 30ml). Refuerza la microbiota cutánea, repara la barrera y aporta luminosidad.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:18500,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH003",brand:"Haru Haru Wonder",name:"Black Rice Serum",size:"30ml",cat:"serums",
+   desc:"Sérum antioxidante con extracto de arroz negro coreano. Combate el envejecimiento, ilumina el tono y deja una textura aterciopelada.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:43300,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH014",brand:"Haru Haru Wonder",name:"Centella 5% Niacinamide Radiance Gel Cream -",size:"90g",cat:"hidratantes",
+   desc:"Gel crema con centella, niacinamida al 5% y péptidos. Unifica el tono, minimiza poros y aporta luminosidad mientras hidrata intensamente.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/150ml_11e70ee9-f850-4fe7-8e7e-a960590e938d.jpg"],
+   price:60300,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"HH015",brand:"Haru Haru Wonder",name:"Centella Phyto & 5 Peptide Concentrate Cream -",size:"30ml",cat:"hidratantes",
+   desc:"Crema concentrada con centella y 5 péptidos. Tratamiento anti-aging que firma, hidrata y repara visiblemente en pocas semanas.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/CENTELLA_phyto_5_peptide_concentrate_cream_30ml_15973552-70cc-46d4-b0be-1180cb18eef3.jpg"],
+   price:49400,inStock:false,g1:"#f3e8ff",g2:"#7c3aed"},
+  {sku:"MX001",brand:"Mixsoon",name:"Bean Cleansing Oil -",size:"195ml",cat:"limpieza",
+   desc:"Aceite limpiador con soja fermentada al 90.6%. Disuelve maquillaje y protector sin dejar residuos grasos. Los beneficios de la fermentación en tu limpieza diaria.",imgs:["https://cdn.shopify.com/s/files/1/0797/3299/8445/files/195ml_2.png?v=1780641830", "https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:50900,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX005",brand:"Mixsoon",name:"Bean Essence -",size:"30ml",cat:"serums",
+   desc:"Esencia minimalista con extracto de soja fermentada al 91.3%. Sin fragancia, sin irritantes. Hidratación profunda + poro refinado + piel naturalmente sana.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg", "https://mixsoon.us/cdn/shop/files/Bean.jpg", "https://mixsoon.us/cdn/shop/files/bean_essence_model.jpg"],
+   price:46100,inStock:true,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX004",brand:"Mixsoon",name:"Bean Essence -",size:"50ml",cat:"serums",
+   desc:"Bean Essence en tamaño full 50ml. La esencia minimalista de soja fermentada que refina la textura y fortalece la barrera. Para quienes aman la rutina simple.",imgs:["https://cdn.shopify.com/s/files/1/0797/3299/8445/files/50ml_2_be3f42d8-84f7-49ea-bf45-a7be68c094c9.png?v=1780640858", "https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:67000,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX003",brand:"Mixsoon",name:"Bean cream -",size:"50ml",cat:"hidratantes",
+   desc:"Crema facial con soja fermentada. Hidratación intensa de larga duración para una piel suave, sana y naturalmente luminosa.",imgs:["https://cdn.shopify.com/s/files/1/0797/3299/8445/files/50ml_2.png?v=1780640570", "https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:66000,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX002",brand:"Mixsoon",name:"Centella Cleansing Foam -",size:"150ml",cat:"limpieza",
+   desc:"Espuma limpiadora suave con centella asiática. Limpieza profunda sin irritar, ideal para pieles sensibles. Piel limpia y equilibrada.",imgs:["https://cdn.shopify.com/s/files/1/0797/3299/8445/files/150ml_2.png?v=1780641679", "https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:39200,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX007",brand:"Mixsoon",name:"Glacier Water Hyaluronic Acid Serum -",size:"100ml",cat:"serums",
+   desc:"Sérum de ácido hialurónico con agua glaciar (100ml). Hidratación intensiva multidimensional que rellena visualmente la piel. Formato ideal para rutina completa.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:51400,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX006",brand:"Mixsoon",name:"Glacier Water Hyaluronic Acid Serum -",size:"300ml",cat:"serums",
+   desc:"Sérum de ácido hialurónico con agua glaciar (300ml). Hidratación multidimensional y efecto plumping en el formato más económico.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:61700,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MX008",brand:"Mixsoon",name:"Glacier Water Hyaluronic Acid Serum -",size:"30ml",cat:"serums",
+   desc:"Sérum de ácido hialurónico con agua glaciar pura (30ml). Hidratación intensiva y efecto plumping inmediato en el tamaño perfecto para probar.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:36300,inStock:false,g1:"#f5f0e8",g2:"#92400e"},
+  {sku:"MZ002",brand:"Mizon",name:"All In One Snail Repair Cream -",size:"75ml",cat:"hidratantes",
+   desc:"La crema de caracol más vendida de Mizon. Con 92% de secreción filtrada. Hidrata, repara y devuelve firmeza. Resultados visibles en 2 semanas.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:47300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ039",brand:"Mizon",name:"All In One Snail Repair Cream - TUBE-",size:"35ml",cat:"hidratantes",
+   desc:"All In One Snail Cream en tubo (35ml). El hit de Mizon en formato de viaje o de prueba. Mismo poder reparador en versión compacta.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:24700,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ016",brand:"Mizon",name:"Cicaluronic Cleansing Balm -",size:"80ml",cat:"limpieza",
+   desc:"Bálsamo limpiador doble fase con centella. Disuelve maquillaje con textura bálsamo que se convierte en aceite al contacto. Suave y eficaz.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:42300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ018",brand:"Mizon",name:"Collagen 100 -",size:"30ml",cat:"serums",
+   desc:"Ampolla de colágeno puro al 100%. Tratamiento intensivo de firmeza y elasticidad para una piel visiblemente más joven.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:43100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ019",brand:"Mizon",name:"Collagen Power Firming Enriched Cream -",size:"50ml",cat:"hidratantes",
+   desc:"Crema enriquecida con colágeno y extractos de plancton marino. Nutrición intensa + firmeza + luminosidad para pieles maduras.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:47300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ026",brand:"Mizon",name:"Collagen Power Firming Eye Cream -",size:"25ml",cat:"ojos",
+   desc:"Contorno de ojos con colágeno. Hidrata, firma y reduce la apariencia de ojeras y arrugas. Tubo compacto y preciso.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:33900,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ042",brand:"Mizon",name:"Collagen Power Firming Eye Cream - TUBE -",size:"10ml",cat:"ojos",
+   desc:"Contorno de ojos con colágeno en tubo (10ml). Ultra-compacto para llevar en cualquier cartera. Firmeza + hidratación en cada aplicación.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:16500,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ029",brand:"Mizon",name:"Collagen Power Lifting Cream -",size:"75ml",cat:"hidratantes",
+   desc:"Crema lifting con colágeno. Firma, hidrata y redefine el óvalo facial. Textura rica pero no pesada.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:47000,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ041",brand:"Mizon",name:"Collagen Power Lifting Cream - TUBE -",size:"35ml",cat:"hidratantes",
+   desc:"Crema lifting con colágeno en tubo (35ml). Firmeza y nutrición en formato travel-friendly. Perfecta para probar o viajar.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:20500,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ027",brand:"Mizon",name:"Goodbye Blemish Clear Patch",size:"",cat:"serums",
+   desc:"Parches de puntos para acné. Absorben el exceso de sebo y cubren la imperfección mientras tratan. Invisibles bajo el maquillaje.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:15500,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ037",brand:"Mizon",name:"Hyalugen Double Layer Mist -",size:"100ml",cat:"serums",
+   desc:"Mist de ácido hialurónico en doble capa. Agitar, aplicar y ver cómo la piel se hidrata y se ilumina al instante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:37000,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ038",brand:"Mizon",name:"Hyalugen Gel To Foam Cleanser -",size:"100ml",cat:"limpieza",
+   desc:"Limpiador en gel con ácido hialurónico. Limpieza suave que no altera la hidratación natural. Para pieles secas y sensibles.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:24700,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ034",brand:"Mizon",name:"Hyalugen Le Lift Cream -",size:"50ml",cat:"hidratantes",
+   desc:"Crema lifting con ácido hialurónico y péptidos. Hidratación + firmeza + efecto lifting visible. Textura rica y confortante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:38100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ036",brand:"Mizon",name:"Hyalugen Le Lift Serum -",size:"30ml",cat:"serums",
+   desc:"Sérum con ácido hialurónico y péptidos. Firmeza, hidratación y efecto anti-aging en una textura ligera y de rápida absorción.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:36000,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ033",brand:"Mizon",name:"Hyalugen Pearly Jelly Mask",size:"",cat:"hidratantes",
+   desc:"Mascarilla en gel con ácido hialurónico. Hidratación profunda e instantánea en una sola vez. Efecto jelly calmante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:8800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ035",brand:"Mizon",name:"Hyalugen Water Toner -",size:"130ml",cat:"serums",
+   desc:"Tónico con ácido hialurónico. Hidratación intensa desde el primer paso de la rutina. Activa y prepara la piel.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:33900,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ032",brand:"Mizon",name:"Hyaluronic Acid 100 -",size:"30ml",cat:"serums",
+   desc:"Ampolla de ácido hialurónico puro al 100%. Hidratación máxima y efecto plumping en tratamiento concentrado.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:38600,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ004",brand:"Mizon",name:"Joyful Time Essence Mask #Aloe",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con aloe vera. Calmante e hidratante, ideal para pieles irritadas o post-sol. Efecto refrescante y confortante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ005",brand:"Mizon",name:"Joyful Time Essence Mask #Cucumber",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con extracto de pepino. Hidratación refrescante y efecto calmante. Piel revitalizada y fresca en pocos minutos.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ006",brand:"Mizon",name:"Joyful Time Essence Mask #Green Tea",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con extracto de té verde antioxidante. Protección frente al daño ambiental y luminosidad natural.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ003",brand:"Mizon",name:"Joyful Time Essence Mask #Hyaluronic",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con ácido hialurónico puro. Hidratación profunda instantánea en 15 minutos. Piel plumped, suave y luminosa al instante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ007",brand:"Mizon",name:"Joyful Time Essence Mask #Pomegranate",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con extracto de granada. Antioxidante y luminosidad. Piel joven, radiante y llena de vitalidad.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ008",brand:"Mizon",name:"Joyful Time Essence Mask #Rose",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con extracto de rosa. Suavidad, confort e hidratación. Piel delicada y radiante con aroma floral.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ009",brand:"Mizon",name:"Joyful Time Essence Mask #Royal Jelly",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con jalea real. Nutrición intensa y efecto anti-aging. Piel firme, luminosa y visiblemente rejuvenecida.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ010",brand:"Mizon",name:"Joyful Time Essence Mask #Snail",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con baba de caracol. La combinación perfecta: hidratación + reparación + luminosidad en 15 minutos.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ011",brand:"Mizon",name:"Joyful Time Essence Mask #Strawberry",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con extracto de fresa. Vitaminas naturales + hidratación + luminosidad. Ideal para pieles apagadas y cansadas.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ012",brand:"Mizon",name:"Joyful Time Essence Mask #Vitamin",size:"",cat:"hidratantes",
+   desc:"Mascarilla de hoja con vitamina C. Illuminating + antioxidante + hidratante. Para pieles que buscan luminosidad inmediata.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:5100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ021",brand:"Mizon",name:"Niacinamide Smoothing Body Lotion -",size:"300ml",cat:"hidratantes",
+   desc:"Loción corporal con niacinamida al 3%. Ilumina, hidrata y unifica el tono del cuerpo. Acabado suave, sin residuo pegajoso.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:42200,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ031",brand:"Mizon",name:"Skin Power Original First Essence -",size:"210ml",cat:"serums",
+   desc:"Primera esencia con fermentos de caracol y arroz. Activa la piel, aporta luminosidad y prepara para los siguientes pasos. Stock limitado.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:51300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ043",brand:"Mizon",name:"Skin Power Original First Essence - MINI -",size:"80ml",cat:"serums",
+   desc:"Primera esencia mini (80ml). El secreto de la piel de porcelana en formato de prueba. Activa, ilumina y prepara la piel.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:22700,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ014",brand:"Mizon",name:"Snail Repair Eye Cream -",size:"25ml",cat:"ojos",
+   desc:"Contorno de ojos con mucina de caracol. Hidrata, regenera y trata ojeras + bolsas + arrugas. El multi-corrector del área periocular.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ040",brand:"Mizon",name:"Snail Repair Eye Cream - TUBE -",size:"15ml",cat:"ojos",
+   desc:"Contorno de ojos con caracol en tubo (15ml). Portátil y preciso. Trata arrugas y bolsas mientras hidrata intensamente.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:20500,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ001",brand:"Mizon",name:"Snail Repair Intensive Ampoule",size:"",cat:"serums",
+   desc:"Ampolla intensiva con mucina de caracol al 74%. Regenera la piel, repara cicatrices y mejora la textura visiblemente. El clásico coreano de la reparación.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:37300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ022",brand:"Mizon",name:"Snail Repair Intensive BB Cream #21 Rosy Beige",size:"50g",cat:"makeup",
+   desc:"BB Cream con mucina de caracol #21 Rosy Beige. Cobertura media + cuidado de la piel + acabado natural. Para tonos muy claros.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ023",brand:"Mizon",name:"Snail Repair Intensive BB Cream #23 Sand Beige",size:"50g",cat:"makeup",
+   desc:"BB Cream con caracol #23 Sand Beige. Cobertura media + SPF + caracol reparador. Para tonos claros-medios. Acabado natural radiante.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ048",brand:"Mizon",name:"Snail Repair Intensive BB Cream #25 -",size:"50g",cat:"makeup",
+   desc:"BB Cream con caracol #25. Cobertura media + cuidado de la piel + acabado natural. Agotado en LUXODIA, consultar disponibilidad.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ024",brand:"Mizon",name:"Snail Repair Intensive BB Cream #27 Medium Beige",size:"50g",cat:"makeup",
+   desc:"BB Cream con caracol #27 Medium Beige. Cobertura media y acabado satin. Con mucina de caracol para pieles que necesitan cuidado extra.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ025",brand:"Mizon",name:"Snail Repair Intensive BB Cream #31 Dark Beige",size:"50g",cat:"makeup",
+   desc:"BB Cream con caracol #31 Dark Beige. Cobertura media + cuidado + SPF. Para tonos más oscuros. Stock limitado.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:30800,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ020",brand:"Mizon",name:"Snail Repair Intensive Essence -",size:"100ml",cat:"serums",
+   desc:"Esencia con mucina de caracol al 80%. Hidratación intensa, reparación y luminosidad. El pre-sérum más completo de Mizon.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:45300,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ017",brand:"Mizon",name:"Snail Repairing Foam Cleanser -",size:"60 ml",cat:"limpieza",
+   desc:"Limpiador facial en espuma con mucina de caracol. Limpieza suave y reconfortante que cuida la piel mientras limpia en profundidad.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:21700,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"MZ030",brand:"Mizon",name:"Snail Wrinkle Care Sleeping Pack -",size:"80ml",cat:"hidratantes",
+   desc:"Sleeping pack con mucina de caracol. Mascarilla de noche que repara y regenera mientras dormís. Piel transformada al despertar.",imgs:["https://cdn.shopify.com/s/files/1/0263/8849/6458/files/Allinonesnailrepaircream75ml_KR.jpg?v=1703620539"],
+   price:41100,inStock:false,g1:"#e0f2fe",g2:"#0284c7"},
+  {sku:"RM028",brand:"Romand",name:"Glasting Melting Balm #01.Coco Nude",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #01 Coco Nude. Bálsamo labial con acabado glossy. Nude transparente hidratante para uso diario.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM029",brand:"Romand",name:"Glasting Melting Balm #02.Lovely Pink",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #02 Lovely Pink. Bálsamo glossy en rosa suave adorable. Hidrata y colorea levemente con brillo coqueto.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM030",brand:"Romand",name:"Glasting Melting Balm #03.Sorbet Balm",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #03 Sorbet Balm. Bálsamo glossy en rosa sherbet refrescante. Ligero y muy hidratante.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM031",brand:"Romand",name:"Glasting Melting Balm #04.Hippie Berry",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #04 Hippie Berry. Bálsamo glossy en berry rojizo. Color con acabado mirror y larga hidratación.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM032",brand:"Romand",name:"Glasting Melting Balm #05.Nougat Sand",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #05 Nougat Sand. Bálsamo en nude rosado con brillo espejo. El más usable de la colección.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM033",brand:"Romand",name:"Glasting Melting Balm #06.Kaya Fig",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #06 Kaya Fig. Bálsamo glossy en higo cálido. Tendencia otoño-invierno con acabado húmedo irresistible.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM034",brand:"Romand",name:"Glasting Melting Balm #07.Mauve Whip",size:"",cat:"makeup",
+   desc:"Glasting Melting Balm #07 Mauve Whip. Bálsamo glossy malva suave. Sofisticado y atemporal. El favorito de las fashionistas K.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-inapsquare-glasting-melting-balm-cover.jpg?v=1733439311", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM039",brand:"Romand",name:"Glasting Water Gloss #00.Meteor Track",size:"",cat:"makeup",
+   desc:"Glasting Water Gloss #00 Meteor Track. Gloss transparente con shimmer. Amplifica el volumen de los labios con un acabado galáctico.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM040",brand:"Romand",name:"Glasting Water Gloss #01.Sanho Crush",size:"",cat:"makeup",
+   desc:"Glasting Water Gloss #01 Sanho Crush. Gloss coral-rosado con shimmer. Labios jugosos, luminosos e irresistibles.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM035",brand:"Romand",name:"Glasting Water Tint #14.Mauve Moon",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #14 Mauve Moon. Labial tint acuoso en malva lunar. Acabado húmedo de larga duración. Muy elegante.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM036",brand:"Romand",name:"Glasting Water Tint #15.Nudy Sundown",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #15 Nudy Sundown. Nude rosado al atardecer. Acabado agua jugoso. El MLBB tint más buscado de la temporada.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM037",brand:"Romand",name:"Glasting Water Tint #16.Figrise",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #16 Figrise. Higo ascendiente. Rosa-nude con base berry. Único y muy Instagram-friendly.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM038",brand:"Romand",name:"Glasting Water Tint #17.Woody Sunset",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #17 Woody Sunset. Marrón nude cálido al atardecer. Sofisticado y moderno. Combinable con todo.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM001",brand:"Romand",name:"Glasting Water Tint - No.02 Red Drop",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #02 Red Drop. Labial tint de agua con acabado húmedo y brillante. Rojo intenso fresco que dura todo el día.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM002",brand:"Romand",name:"Glasting Water Tint - No.03 Brick River",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #03 Brick River. Labial tint de agua. Terracota oscuro trendy. Acabado glossy de larga duración.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM003",brand:"Romand",name:"Glasting Water Tint - No.04 Vintage Ocean",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #04 Vintage Ocean. Labial tint de agua. Rosa vino vintage con toque azulado. K-beauty elegance.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM004",brand:"Romand",name:"Glasting Water Tint - No.05 Rose Splash",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #05 Rose Splash. Labial tint agua. Rosa claro luminoso. Acabado mojado que promete labios irresistibles.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM005",brand:"Romand",name:"Glasting Water Tint - No.08 Rose Stream",size:"",cat:"makeup",
+   desc:"Glasting Water Tint #08 Rose Stream. Rosa suave acuoso. El shade más popular de la línea Water Tint de Romand.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM010",brand:"Romand",name:"Juicy Lasting Tint #06.Figfig",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #06 Figfig. Tint de larga duración con acabado glossy. Higo ciruela oscuro, el shade más viral de la temporada.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM011",brand:"Romand",name:"Juicy Lasting Tint #07.Jujube",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #07 Jujube. Rojo fruta jujube. Intensidad natural y acabado húmedo que parece recién aplicado. Muy versátil.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM012",brand:"Romand",name:"Juicy Lasting Tint #08.Apple Brown",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #08 Apple Brown. Marrón manzana cálido. Trendy y sofisticado. Stock limitado, muy buscado esta temporada.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM013",brand:"Romand",name:"Juicy Lasting Tint #09.Litchi Coral",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #09 Litchi Coral. Coral litchi fresco y vibrante. Perfecto para looks de primavera/verano con mucha energía.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM014",brand:"Romand",name:"Juicy Lasting Tint #10.Nudy Peanut",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #10 Nudy Peanut. Nude rosa cálido y muy favorecedor. El shade más \"MLBB\" de la línea Juicy Lasting Tint.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM015",brand:"Romand",name:"Juicy Lasting Tint #11.Pink Pumpkin",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #11 Pink Pumpkin. Rosa calabaza cálido. Único y otoñal. Para quienes buscan diferenciarse con el labial.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM016",brand:"Romand",name:"Juicy Lasting Tint #12.Cherry Bomb",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #12 Cherry Bomb. Rojo cereza intenso. Clásico K-beauty para un look dramático y apasionado.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM017",brand:"Romand",name:"Juicy Lasting Tint #13.Eat Dotori",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #13 Eat Dotori. Marrón bellota terroso y natural. Muy favorecedor para los días de look \"no-makeup makeup\".",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM018",brand:"Romand",name:"Juicy Lasting Tint #18.Mulled Peach",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #18 Mulled Peach. Durazno especiado cálido. Ideal para el otoño, con una calidez única en la línea.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM019",brand:"Romand",name:"Juicy Lasting Tint #19.Almond Rose",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #19 Almond Rose. Rosa almendra suave. El nude rosado perfecto para un look natural y pulido.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM020",brand:"Romand",name:"Juicy Lasting Tint #20.Dark Coconut",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #20 Dark Coconut. Nude oscuro con subtono terroso. Sofisticado y moderno. Agotado — consultar stock.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM021",brand:"Romand",name:"Juicy Lasting Tint #21.Deep Sangria",size:"",cat:"makeup",
+   desc:"Juicy Lasting Tint #21 Deep Sangria. Sangría oscura intensa y elegante. Para looks atrevidos y noches especiales.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM022",brand:"Romand",name:"Zero Velvet Tint #02 Joyful",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #02 Joyful. Mate velvet. Rosa coral vivo y alegre. El shade más festivo de la colección Zero Velvet.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM023",brand:"Romand",name:"Zero Velvet Tint #04 Burnt Heart",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #04 Burnt Heart. Terracota quemado mate. Muy trendy y favorecedor. Agotado — consultar disponibilidad.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM024",brand:"Romand",name:"Zero Velvet Tint #05 Witty",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #05 Witty. Mate velvet. Naranja ladrillo moderno. Bold y artístico. Edición limitada.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM025",brand:"Romand",name:"Zero Velvet Tint #06 Deepsoul",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #06 Deepsoul. Labial mate oscuro. Burdeo intenso. Para looks poderosos y atrevidos. Stock limitado.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM026",brand:"Romand",name:"Zero Velvet Tint #07 Fizz",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #07 Fizz. Mate velvet. Rojo pop vibrante. Para quienes aman los labiales que dicen todo sin hablar.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM027",brand:"Romand",name:"Zero Velvet Tint #08 Icy",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #08 Icy. Mate velvet en tono inusual. Rosado icy con subtono frío. Para los más atrevidos en makeup.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM006",brand:"Romand",name:"Zero Velvet Tint #12 Anne Shirley",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #12 Anne Shirley. Labial mate aterciopelado de larga duración. Tono rosado cálido inspirado en la heroína literaria.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM007",brand:"Romand",name:"Zero Velvet Tint #13 Berry Cake",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #13 Berry Cake. Labial mate de acabado zero-weight. Berry frambuesa vibrante y pigmentado. K-drama look.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM008",brand:"Romand",name:"Zero Velvet Tint #14 Pecan Tarte",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #14 Pecan Tarte. Mate aterciopelado. Nude terroso marrón cálido muy favorecedor en todos los tonos de piel.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"RM009",brand:"Romand",name:"Zero Velvet Tint #16 Burny Nude",size:"",cat:"makeup",
+   desc:"Zero Velvet Tint #16 Burny Nude. Mate velvet. Nude terroso con base naranja. Natural y sofisticado al mismo tiempo.",imgs:["https://cdn.shopify.com/s/files/1/0271/7351/9412/files/romnd-juicy-lasting-tint-hover.png?v=1719251857", "https://cdn.shopify.com/s/files/1/0271/7351/9412/files/rom-nd-the-juicy-lasting-tint-model-close.jpg?v=1754506756"],
+   price:27800,inStock:false,g1:"#fdf2f8",g2:"#db2777"},
+  {sku:"SN003",brand:"S.Nature",name:"Aqua Oasis Panthe-allan Calming Pad -",size:"60u",cat:"serums",
+   desc:"Pads con pantenol y alantoína. Calman, hidratan y tonifican en un solo paso. 60 unidades para una rutina práctica y efectiva.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:56000,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SN004",brand:"S.Nature",name:"Aqua Squalane Moisturizing Cream -",size:"10ml",cat:"hidratantes",
+   desc:"Crema de escualano mini (10ml). La hidratación profunda de S.Nature en tamaño de prueba o de viaje. Para conocer la marca.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:13700,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SN002",brand:"S.Nature",name:"Aqua Squalane Moisturizing Cream -",size:"60ml",cat:"hidratantes",
+   desc:"Crema de escualano 60ml. Nutrición profunda e intensiva para pieles secas. Textura rica que se absorbe sin sensación grasa.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:52500,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SN005",brand:"S.Nature",name:"Aqua Squalane Moisturizing Cream -",size:"80ml",cat:"hidratantes",
+   desc:"Crema de escualano 80ml. El tamaño grande para los fans de S.Nature. Nutrición intensa, barrera fortalecida y piel suave.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:70800,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SN001",brand:"S.Nature",name:"Aqua Squalane Serum -",size:"50ml",cat:"serums",
+   desc:"Sérum de escualano de 50ml. Ultra-hidratante y calmante, ideal para pieles secas y sensibles. Sin fragancia, sin irritantes.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:44300,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SN006",brand:"S.Nature",name:"Aqua Squalane Serum -",size:"70ml",cat:"serums",
+   desc:"Sérum de escualano 70ml. Hidratación profunda de larga duración en el tamaño ideal para una rutina completa.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:62100,inStock:false,g1:"#f0f9ff",g2:"#0ea5e9"},
+  {sku:"SK002",brand:"Secret Key",name:"Snow White Cream",size:"50g",cat:"hidratantes",
+   desc:"La crema de nieve blanca original de Secret Key. Illuminating + hidratante + SPF incluido. El clásico K-beauty para un tono uniforme.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:37100,inStock:false,g1:"#f8fafc",g2:"#94a3b8"},
+  {sku:"SK003",brand:"Secret Key",name:"Snow White Milky Lotion -",size:"120ml",cat:"hidratantes",
+   desc:"Loción iluminadora con extracto de nieve. Hidratación ligera y luminosidad duradera. El paso esencial para un tono parejo y brillante.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:43700,inStock:false,g1:"#f8fafc",g2:"#94a3b8"},
+  {sku:"SK001",brand:"Secret Key",name:"Snow White Milky Pack -",size:"200g",cat:"hidratantes",
+   desc:"Mascarilla de noche aclarante con extracto de orquídea de nieve. Ilumina el tono, hidrata intensamente y deja la piel visiblemente más blanca y radiante.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:44200,inStock:false,g1:"#f8fafc",g2:"#94a3b8"},
+  {sku:"SK004",brand:"Secret Key",name:"Snow White Spot Gel -",size:"65g",cat:"serums",
+   desc:"Gel puntual aclarante con extracto de nieve. Trata manchas e imperfecciones mientras hidrata. Fórmula de acción rápida y visible.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:43300,inStock:false,g1:"#f8fafc",g2:"#94a3b8"},
+  {sku:"S1017",brand:"Skin1004",name:"Centella Ampoule -",size:"100ml",cat:"serums",
+   desc:"Centella Ampoule en tamaño maxi (100ml). Para los fans comprometidos con la centella. El tratamiento calmante más potente del mercado.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:68000,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1016",brand:"Skin1004",name:"Centella Ampoule -",size:"30ml",cat:"serums",
+   desc:"Centella Ampoule en tamaño mini (30ml). Ideal para probar, viajar o incorporar al kit diario. El mismo poder calmante al 100%.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:29100,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1015",brand:"Skin1004",name:"Centella Ampoule -",size:"55ml",cat:"serums",
+   desc:"Ampolla concentrada de centella asiática al 100%. Calma, regenera y repara la piel sensible, con rojez o post-acné. La referencia del K-beauty calmante.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695", "https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-madagascar-centella-ampoule-30258989072541.gif?v=1677148618"],
+   price:44500,inStock:true,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1001",brand:"Skin1004",name:"Centella Ampoule Foam -",size:"125ml",cat:"limpieza",
+   desc:"Limpiador en espuma con centella asiática al 100% para pieles sensibles. Limpieza profunda y suave que no irrita ni reseca. Dermatológicamente testeado.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cleanser-centella-ampoule-foam-38642819825910.png?v=1677149057", "https://www.skin1004.com/cdn/shop/products/skin1004-cleanser-madagascar-centella-ampoule-foam-30259010502813.gif?v=1717738201"],
+   price:41700,inStock:true,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1018",brand:"Skin1004",name:"Centella Light Cleansing Oil -",size:"200ml",cat:"limpieza",
+   desc:"Aceite limpiador bifásico de textura ultraligera. Disuelve el maquillaje más resistente sin residuos grasos. Piel perfectamente limpia e hidratada.",imgs:["https://www.skin1004.com/cdn/shop/files/skin1004-cleanser-centella-light-cleansing-oil-42321970594038.jpg?v=1733104905", "https://www.skin1004.com/cdn/shop/products/skin1004-cleanser-madagascar-centella-light-cleansing-oil-30259218743453.gif?v=1677151102"],
+   price:48400,inStock:true,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1024",brand:"Skin1004",name:"Centella Light Cleansing Oil -",size:"30ml",cat:"limpieza",
+   desc:"Aceite limpiador de centella mini (30ml). Ideal para desmaquillante de viaje. Misma fórmula ultraligera en formato portátil.",imgs:["https://www.skin1004.com/cdn/shop/files/skin1004-cleanser-centella-light-cleansing-oil-42321970594038.jpg?v=1733104905"],
+   price:22500,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1025",brand:"Skin1004",name:"Centella Quick Calming Pad 70 Pads -",size:"70 Pads",cat:"serums",
+   desc:"Pads de centella exfoliantes y calmantes. 70 pads de uso diario que tonifican, calman y refinan la textura. Práctico y efectivo.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:46400,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1023",brand:"Skin1004",name:"Centella Soothing Cream -",size:"30ml",cat:"hidratantes",
+   desc:"Crema calmante de centella mini (30ml). Para probar o viajar. La misma fórmula SOS en tamaño compacto.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:26200,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1019",brand:"Skin1004",name:"Centella Soothing Cream -",size:"75ml",cat:"hidratantes",
+   desc:"Crema de centella calmante para pieles sensibles. Hidratación intensa y efecto SOS para pieles irritadas, con rojez o post-tratamiento.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426", "https://www.skin1004.com/cdn/shop/products/skin1004-cream-madagascar-centella-soothing-cream-30259271991453.gif?v=1677149146"],
+   price:53100,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1002",brand:"Skin1004",name:"Centella Toning Toner -",size:"210ml",cat:"serums",
+   desc:"Tónico de centella que trata y tonifica en un solo paso. Minimiza poros, equilibra el sebo y prepara la piel para la rutina.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-toner-centella-toning-toner-38642837750006.png?v=1766754925", "https://www.skin1004.com/cdn/shop/products/skin1004-tonner-madagascar-centella-toning-toner-30259313770653.gif?v=1766754953"],
+   price:49000,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1004",brand:"Skin1004",name:"Centella Travel Kit",size:"",cat:"serums",
+   desc:"Travel Kit de centella de Skin1004. Centella Ampoule Foam + Centella Ampoule + Toning Toner. El combo para probar la rutina completa.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-centella-ampoule-38642800132342.png?v=1677148695"],
+   price:84500,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1026",brand:"Skin1004",name:"Poremizing Clear Toner -",size:"210ml",cat:"serums",
+   desc:"Tónico Poremizing que limpia, afina y minimiza los poros. Con ácido hialurónico + centella. El primer paso de la rutina pore-care.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-toner-centella-toning-toner-38642837750006.png?v=1766754925"],
+   price:47400,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1027",brand:"Skin1004",name:"Poremizing Fresh Ampoule -",size:"100ml",cat:"serums",
+   desc:"Ampolla Poremizing en tamaño maxi (100ml). Trata los poros dilatados en profundidad con ingredientes de alta concentración.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-poremizing-fresh-ampoule-38642870780150.png?v=1677149786", "https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-poremizing-fresh-ampoule-38609117708534.jpg?v=1677149695"],
+   price:57200,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1038",brand:"Skin1004",name:"Poremizing Fresh Ampoule -",size:"30ml",cat:"serums",
+   desc:"Ampolla Poremizing mini 30ml. Concentrado anti-poro en tamaño de prueba. El primer paso para poros invisibles.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-poremizing-fresh-ampoule-38642870780150.png?v=1677149786"],
+   price:26200,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1029",brand:"Skin1004",name:"Poremizing Fresh Ampoule -",size:"50ml",cat:"serums",
+   desc:"Ampolla Poremizing 50ml. El tratamiento anti-poro de tamaño intermedio. Niacinamida + centella para poros visiblemente más pequeños.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-poremizing-fresh-ampoule-38642870780150.png?v=1677149786"],
+   price:39700,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1028",brand:"Skin1004",name:"Poremizing Light Gel Cream -",size:"75ml",cat:"hidratantes",
+   desc:"Gel crema Poremizing ultraligero. Hidrata sin obstruir poros, con acabado mate suave. Para pieles mixtas y grasas.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-poremizing-fresh-ampoule-38642870780150.png?v=1677149786"],
+   price:48500,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1020",brand:"Skin1004",name:"Tone Brightening Boosting Toner -",size:"210ml",cat:"serums",
+   desc:"Tónico brightening con ácido hialurónico y vitamina C. Ilumina, hidrata y prepara la piel para los siguientes pasos de la rutina.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-toner-centella-toning-toner-38642837750006.png?v=1766754925"],
+   price:50000,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1021",brand:"Skin1004",name:"Tone Brightening Capsule Ampoule -",size:"100ml",cat:"serums",
+   desc:"Ampolla cápsula brightening en tamaño full 100ml. Cápsulas de vitamina C + ácido hialurónico que iluminan y hidratan intensamente.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-brightening-capsule-ampoule-38642788630774.png?v=1677148702", "https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-madagascar-centella-tone-brightening-capsule-ampoule-34557561635062.gif?v=1677148510"],
+   price:61700,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1037",brand:"Skin1004",name:"Tone Brightening Capsule Ampoule -",size:"30ml",cat:"serums",
+   desc:"Ampolla brightening mini 30ml. Para probar o viajar. La misma cápsula de vitamina C en tamaño accesible.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-brightening-capsule-ampoule-38642788630774.png?v=1677148702"],
+   price:28400,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1034",brand:"Skin1004",name:"Tone Brightening Capsule Ampoule -",size:"50ml",cat:"serums",
+   desc:"Ampolla brightening 50ml. Vitamina C en cápsulas para pieles sensibles que quieren luminosidad sin irritación.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-ampoule-serum-100ml-brightening-capsule-ampoule-38642788630774.png?v=1677148702"],
+   price:37100,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"S1022",brand:"Skin1004",name:"Tone Brightening Capsule Cream -",size:"75ml",cat:"hidratantes",
+   desc:"Crema brightening con cápsulas de vitamina C. Ilumina manchas, hidrata y aporta un acabado luminoso duradero.",imgs:["https://www.skin1004.com/cdn/shop/products/skin1004-cream-centella-soothing-cream-38642833588470.png?v=1677149426"],
+   price:60800,inStock:false,g1:"#d1fae5",g2:"#10b981"},
+  {sku:"TC009",brand:"Tocobo",name:"AHA BHA Lemon Toner",size:"",cat:"serums",
+   desc:"Tónico exfoliante con AHA + BHA + jugo de limón. Afina la textura, ilumina y desobstruye poros suavemente.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:39100,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC007",brand:"Tocobo",name:"Bio Watery Sun Cream SPF50 + PA +  +  +  + ",size:"",cat:"solar",
+   desc:"Protector solar en crema de textura acuosa y acabado invisible. SPF50+ PA++++ con niacinamida y péptidos. Piel cuidada y protegida.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:36700,inStock:true,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC008",brand:"Tocobo",name:"Calamine pore Control Cleansing Oil",size:"",cat:"limpieza",
+   desc:"Aceite limpiador con calamina y árbol de té. Controla el sebo, limpia poros y disuelve el maquillaje sin resecar.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:38000,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC005",brand:"Tocobo",name:"Cica Calming Sun Serum SPF50 + PA +  +  +  + -",size:"15ml",cat:"solar",
+   desc:"Suero solar con centella en tamaño mini (15ml). Ideal para probar o llevar en el bolso. Misma fórmula calmante en versión portátil.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:9300,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC004",brand:"Tocobo",name:"Cica Calming Sun Serum SPF50 + PA +  +  +  + -",size:"50ml",cat:"solar",
+   desc:"Suero solar con centella asiática. Calma y protege a la vez. Acabado satinado sin película blanca. SPF50+ PA++++.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:37100,inStock:true,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC006",brand:"Tocobo",name:"Cica Cooling Sun Stick SPF50 + PA +  +  +  + ",size:"",cat:"solar",
+   desc:"Stick solar de centella con efecto refrescante instantáneo. SPF50+ PA++++. Para retoques sobre el maquillaje sin correrse.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:35100,inStock:true,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC010",brand:"Tocobo",name:"Coconut Clay Cleansing Foam",size:"",cat:"limpieza",
+   desc:"Espuma limpiadora con arcilla de coco. Limpieza profunda y suave que controla el exceso de sebo sin irritar.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:25800,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC001",brand:"Tocobo",name:"Cotton Soft Sun Stick SPF50 + PA +  +  +  + ",size:"",cat:"solar",
+   desc:"El stick solar viral de Tocobo. Acabado algodón ultrasuave sin brillo ni residuo blanco. SPF50+ PA++++ en formato práctico. Perfecto para la cartera.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png", "https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/cotton17436463289098e065adb61c8.webp", "https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/2174364625306934d0a2f66ff3.jpg"],
+   price:37800,inStock:true,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC003",brand:"Tocobo",name:"Lemon Sugar Scrub Lip Mask -",size:"20ml",cat:"lips",
+   desc:"Scrub labial de limón y azúcar. Exfolia, hidrata y suaviza labios ásperos. Para tener los labios perfectos en 5 minutos.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:34200,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"TC002",brand:"Tocobo",name:"Vita Glazed Lip Mask -",size:"20ml",cat:"lips",
+   desc:"Bálsamo labial de frambuesa y vitamina A. Hidrata, repara y suaviza los labios con un sutil toque de gloss natural.",imgs:["https://d2c3d01lcpw2ui.cloudfront.net/gl/data/item/1647583506/fa0a95a25099a62394ab6e2df52a634b177909154140468b2fba51d5e.png"],
+   price:34200,inStock:false,g1:"#fef3c7",g2:"#d97706"},
+  {sku:"VG003",brand:"Vegreen",name:"730 Daily Moisture Cream",size:"",cat:"hidratantes",
+   desc:"Crema hidratante de uso diario. Hidratación ligera y equilibrada para mantener la barrera sana y la piel suave todo el día.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:48000,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG004",brand:"Vegreen",name:"Alcohol-Free Mucin Essence Toner",size:"",cat:"serums",
+   desc:"Tónico esencia con mucina de caracol vegetal (sin ingredientes de origen animal). Hidratación intensa + barrera + brillo natural.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:39400,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG002",brand:"Vegreen",name:"Fragrance-Free Cica Serum",size:"",cat:"serums",
+   desc:"Sérum de centella sin fragancia. 100% vegano y clean. Calma, hidrata y repara la piel sin irritantes ni ingredientes polémicos.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:49800,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG006",brand:"Vegreen",name:"Fragrance-Free Nature Mucin Serum",size:"",cat:"serums",
+   desc:"Sérum con mucina de caracol vegetal 100% orgánica. Hidratación de última generación + barrera + luminosidad.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:45900,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG005",brand:"Vegreen",name:"Intensive Vitamin C Ampoule 20%",size:"",cat:"serums",
+   desc:"Ampolla de vitamina C al 20%. Concentrado brightening de alta eficacia para manchas, tono desigual y luminosidad máxima.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:64700,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG007",brand:"Vegreen",name:"Rice Facial Wash Cleanser",size:"",cat:"limpieza",
+   desc:"Limpiador facial con extracto de arroz. Limpieza suave y brightening que ilumina mientras limpia. Para pieles que buscan el tono parejo.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:33200,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VG001",brand:"Vegreen",name:"Skin Barrier Reishi Serum",size:"",cat:"serums",
+   desc:"Sérum con reishi (hongo de la inmortalidad). Refuerza la barrera cutánea, aporta luminosidad y calma las pieles sensibles de forma duradera.",imgs:["https://mixsoon.us/cdn/shop/files/b228780eb305239cfe4cd919710c6f98.jpg"],
+   price:46000,inStock:false,g1:"#ecfdf5",g2:"#22c55e"},
+  {sku:"VF001",brand:"Village 11 Factory",name:"Miracle Youth Cream -",size:"50ml",cat:"hidratantes",
+   desc:"Crema anti-aging con 40 botánicos premium. Para pieles maduras que buscan firmeza y luminosidad duradera. El tratamiento de juventud de Village 11 Factory.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/CENTELLA_phyto_5_peptide_concentrate_cream_30ml_15973552-70cc-46d4-b0be-1180cb18eef3.jpg"],
+   price:42200,inStock:false,g1:"#fffbeb",g2:"#b45309"},
+  {sku:"VF002",brand:"Village 11 Factory",name:"Miracle Youth Serum -",size:"50ml",cat:"serums",
+   desc:"Sérum anti-aging con 40 botánicos premium. Firmeza, hidratación y luminosidad desde la primera semana. La base del ritual de juventud coreano.",imgs:["https://cdn.shopify.com/s/files/1/0707/0190/8217/files/CENTELLA_phyto_5_peptide_concentrate_cream_30ml_15973552-70cc-46d4-b0be-1180cb18eef3.jpg"],
+   price:38600,inStock:false,g1:"#fffbeb",g2:"#b45309"},
+];
+
+  const COMBOS = [
+    {
+      name: 'Rutina Centella Skin1004',
+      tagline: 'La rutina completa de centella para pieles sensibles y con rojez',
+      items: ['Centella Ampoule Foam 125ml', 'Centella Ampoule 55ml'],
+      priceBefore: 86200, priceNow: 77600, saving: 8600,
+      discount: '10% OFF'
+    },
+    {
+      name: 'Rutina Skin1004 Completa',
+      tagline: 'Limpieza + espuma + ampolla: la rutina de centella definitiva',
+      items: ['Centella Light Cleansing Oil 200ml', 'Centella Ampoule Foam 125ml', 'Centella Ampoule 55ml'],
+      priceBefore: 134600, priceNow: 121100, saving: 13500,
+      discount: '10% OFF'
+    },
+    {
+      name: 'Glow Kit Beauty of Joseon',
+      tagline: 'El dúo de serums más popular para un glow natural y duradero',
+      items: ['Calming Serum Green Tea + Panthenol 30ml', 'Glow Serum Propolis + Niacinamide 30ml'],
+      priceBefore: 90200, priceNow: 81200, saving: 9000,
+      discount: '10% OFF'
+    },
+    {
+      name: 'BoJ Trio Serums',
+      tagline: 'Los tres serums estrella de Beauty of Joseon en un solo kit',
+      items: ['Calming Serum 30ml', 'Glow Serum 30ml', 'Glow Deep Serum Rice + Arbutin 30ml'],
+      priceBefore: 134800, priceNow: 124000, saving: 10800,
+      discount: '8% OFF'
+    },
+    {
+      name: 'Pack Solar Tocobo Cotton',
+      tagline: 'Stick para retoques + crema para la aplicación completa',
+      items: ['Cotton Soft Sun Stick 19g', 'Bio Watery Sun Cream 50ml'],
+      priceBefore: 74500, priceNow: 70800, saving: 3700,
+      discount: '5% OFF'
+    },
+    {
+      name: 'Pack Solar Tocobo Cica',
+      tagline: 'Protección calmante de centella: la combinación ideal para pieles sensibles',
+      items: ['Cica Cooling Sun Stick 18g', 'Bio Watery Sun Cream 50ml'],
+      priceBefore: 71800, priceNow: 68200, saving: 3600,
+      discount: '5% OFF'
+    },
+  ];
+
+  /* ── HELPERS ─────────────────────────────────────────────── */
+  const $ = id => document.getElementById(id);
+
+  function fmt(n) {
+    return '$ ' + n.toLocaleString('es-AR');
+  }
+
+  function waLink(text) {
+    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  }
+
+  /* ── CAROUSEL BUILDER ───────────────────────────────────── */
+  function buildCarousel(imgs, name, g1, g2) {
+    const validImgs = Array.isArray(imgs) ? imgs.filter(Boolean) : (imgs ? [imgs] : []);
+    const bg = `background:linear-gradient(135deg,${g1},${g2})`;
+
+    if (!validImgs.length) {
+      return `<div class="card-media" style="${bg}">
+        <span class="card-emoji">🌸</span>
+      </div>`;
+    }
+
+    if (validImgs.length === 1) {
+      return `<div class="card-media" style="${bg}">
+        <img src="${validImgs[0]}" alt="${name}" loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;display:block" />
+      </div>`;
+    }
+
+    const imgTags = validImgs.map((src, i) =>
+      `<img src="${src}" alt="${name}" loading="lazy" class="${i===0?'c-active':''}" />`
+    ).join('');
+
+    const dots = validImgs.map((_,i) =>
+      `<span class="carousel-dot ${i===0?'c-active':''}"></span>`
+    ).join('');
+
+    return `<div class="card-media" style="${bg}">
+      <div class="card-carousel" data-idx="0">
+        ${imgTags}
+        <div class="carousel-dots">${dots}</div>
+        <button class="carousel-btn carousel-prev" aria-label="Anterior">‹</button>
+        <button class="carousel-btn carousel-next" aria-label="Siguiente">›</button>
+      </div>
+    </div>`;
+  }
+
+  function initCarousels(scope) {
+    (scope || document).querySelectorAll('.card-carousel').forEach(c => {
+      const imgs = c.querySelectorAll('img');
+      const dots = c.querySelectorAll('.carousel-dot');
+      if (imgs.length <= 1) return;
+
+      function goTo(idx) {
+        const cur = +c.dataset.idx;
+        imgs[cur].classList.remove('c-active');
+        dots[cur].classList.remove('c-active');
+        c.dataset.idx = idx;
+        imgs[idx].classList.add('c-active');
+        dots[idx].classList.add('c-active');
+      }
+
+      c.querySelector('.carousel-next')?.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        goTo((+c.dataset.idx + 1) % imgs.length);
+      });
+      c.querySelector('.carousel-prev')?.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        goTo((+c.dataset.idx - 1 + imgs.length) % imgs.length);
+      });
+      dots.forEach((d, i) => d.addEventListener('click', e => {
+        e.stopPropagation(); goTo(i);
+      }));
+
+      let touchStartX = 0;
+      c.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+      c.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) {
+          dx < 0 ? goTo((+c.dataset.idx+1)%imgs.length) : goTo((+c.dataset.idx-1+imgs.length)%imgs.length);
+        }
+      });
+    });
+  }
+
+  /* ── RENDER PRODUCTS ─────────────────────────────────────── */
+  function renderProducts(cat = 'todos') {
+    const grid = $('productsGrid');
+    grid.innerHTML = '';
+
+    const list = cat === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+
+    if (!list.length) {
+      grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--c-muted);padding:3rem 0">Sin productos en esta categoría por ahora.</p>';
+      return;
+    }
+
+    list.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      const wa = waLink(`Hola TOGOAR! Me interesa: *${p.name}* (${p.size}) — ${fmt(p.price)} ARS. ¿Hay disponibilidad? 🌸`);
+
+      card.innerHTML = `
+        <span class="card-badge ${p.inStock ? 'badge-stock' : 'badge-encargo'}">
+          ${p.inStock ? '✅ En stock' : '📦 Por encargo'}
+        </span>
+        ${buildCarousel(p.imgs || p.img, p.name, p.g1, p.g2)}
+        <div class="card-body">
+          <div class="card-brand">${p.brand}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-size">${p.size}</div>
+          <div class="card-desc">${p.desc}</div>
+          <div class="card-footer">
+            <div class="card-price">
+              <span class="ars">ARS</span>
+              <span class="amount">${fmt(p.price)}</span>
+            </div>
+            <a class="btn-order" href="${wa}" target="_blank" rel="noopener">
+              💬 Pedir
+            </a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    initCarousels(grid);
+  }
+
+  /* ── RENDER COMBOS ───────────────────────────────────────── */
+  function renderCombos() {
+    const grid = $('combosGrid');
+    COMBOS.forEach(c => {
+      const wa = waLink(`Hola! Me interesa el combo *${c.name}* — ${fmt(c.priceNow)} ARS. ¿Tienen disponibilidad? 🌸`);
+      const card = document.createElement('article');
+      card.className = 'combo-card';
+      card.innerHTML = `
+        <div class="combo-top">
+          <h3 class="combo-name">${c.name}</h3>
+          <span class="combo-discount">${c.discount}</span>
+        </div>
+        <p class="combo-tagline">${c.tagline}</p>
+        <div class="combo-items">
+          ${c.items.map(i => `<div class="combo-item">${i}</div>`).join('')}
+        </div>
+        <div class="combo-divider"></div>
+        <div class="combo-pricing">
+          <div class="combo-prices">
+            <span class="price-before">Antes ${fmt(c.priceBefore)}</span>
+            <span class="price-now">${fmt(c.priceNow)}</span>
+            <span class="price-save">Ahorrás ${fmt(c.saving)} 🎉</span>
+          </div>
+          <a class="btn-order" href="${wa}" target="_blank" rel="noopener">
+            💬 Lo quiero
+          </a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  /* ── CATEGORY TABS ───────────────────────────────────────── */
+  $('categoryTabs').addEventListener('click', e => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(btn.dataset.cat);
+  });
+
+  /* ── STICKY NAV ─────────────────────────────────────────── */
+  window.addEventListener('scroll', () => {
+    $('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── FORM ───────────────────────────────────────────────── */
+  $('importForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(e.target));
+    const subject = encodeURIComponent(`Consulta TOGOAR — ${d.tipo || 'Importación'} | ${d.nombre}`);
+    const body = encodeURIComponent(
+      `Nombre: ${d.nombre}\nEmail: ${d.email}\nTeléfono: ${d.telefono || '—'}\n` +
+      `Tipo: ${d.tipo || '—'}\nProducto/Marca: ${d.producto || '—'}\n\nMensaje:\n${d.mensaje || '—'}`
+    );
+    window.location.href = `mailto:info@togoar.com?subject=${subject}&body=${body}`;
+
+    const btn = $('submitBtn');
+    btn.textContent = '✅ ¡Consulta enviada!';
+    btn.style.background = 'linear-gradient(135deg,#22C55E,#16A34A)';
+    setTimeout(() => {
+      btn.textContent = 'Enviar consulta ✦';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  });
+
+  /* ── CSV PARSER (handles quoted fields with commas) ─────── */
+  function parseCSV(text) {
+    const lines = text.trim().split(/\r?\n/);
+    return lines.map(line => {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') { inQ = !inQ; }
+        else if (ch === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += ch; }
+      }
+      cols.push(cur.trim());
+      return cols;
+    });
+  }
+
+  /* ── GOOGLE SHEETS LOADER ────────────────────────────────── */
+  async function loadFromSheets() {
+    if (!SHEETS_CSV_URL) return false;
+    try {
+      const res = await fetch(SHEETS_CSV_URL);
+      if (!res.ok) return false;
+      const text = await res.text();
+      const rows = parseCSV(text).slice(1); // skip header row
+      const parsed = rows.map(cols => ({
+        sku:     cols[0]  || '',
+        brand:   cols[1]  || '',
+        name:    cols[2]  || '',
+        size:    cols[3]  || '',
+        cat:     cols[4]  || 'serums',
+        desc:    cols[5]  || '',
+        imgs:    cols[6]  ? cols[6].split('|').map(u=>u.trim()).filter(Boolean) : [],
+        price:   parseInt(cols[7]) || 0,
+        inStock: cols[8]?.toLowerCase() === 'true',
+        g1:      cols[9]  || '#f3e8ff',
+        g2:      cols[10] || '#c084fc',
+      })).filter(p => p.sku && p.price);
+
+      if (parsed.length) {
+        PRODUCTS.length = 0;
+        PRODUCTS.push(...parsed);
+        return true;
+      }
+    } catch { /* fall through to embedded data */ }
+    return false;
+  }
+
+  /* ── INIT ────────────────────────────────────────────────── */
+  (async () => {
+    await loadFromSheets();
+    renderProducts();
+    renderCombos();
+  })();
+</script>
+
+</body>
+</html>
