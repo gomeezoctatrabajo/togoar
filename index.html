@@ -1545,6 +1545,15 @@
   💬
 </a>
 
+<!-- Product Detail Modal (must be in DOM before script runs) -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-info"  id="modalInfo"></div>
+  </div>
+</div>
+
 <!-- ============================================================
      JAVASCRIPT — DATA & RENDER
      ============================================================ -->
@@ -2578,15 +2587,6 @@
     renderCombos();
   })();
 </script>
-
-<!-- Product Detail Modal -->
-<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
-    <div class="modal-media" id="modalMedia"></div>
-    <div class="modal-info"  id="modalInfo"></div>
-  </div>
-</div>
 
 </body>
 </html>
