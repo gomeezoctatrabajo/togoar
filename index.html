@@ -2248,7 +2248,8 @@
         inStock: cols[8]?.toLowerCase() === 'true',
         g1:      cols[9]  || '#f3e8ff',
         g2:      cols[10] || '#c084fc',
-      })).filter(p => p.sku && p.price);
+        visible: cols[11] === undefined || cols[11]?.toLowerCase() !== 'false',
+      })).filter(p => p.sku && p.price && p.visible);
 
       if (parsed.length) {
         PRODUCTS.length = 0;
