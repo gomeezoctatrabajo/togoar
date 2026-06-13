@@ -1247,6 +1247,27 @@
     }
     .modal-wa-btn:hover { opacity: .9; transform: translateY(-1px); }
 
+    .modal-cart-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      justify-content: center;
+      background: linear-gradient(135deg, #7C3AED, #C026D3);
+      color: #fff;
+      font-weight: 700;
+      font-size: .88rem;
+      padding: .8rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      margin-top: .6rem;
+    }
+    .modal-cart-btn:hover { opacity: .9; transform: translateY(-1px); }
+    .modal-cart-btn.added {
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+    }
+
     @media (max-width: 640px) {
       .modal-box {
         grid-template-columns: 1fr;
@@ -2862,6 +2883,10 @@
         <span class="modal-price-ars">ARS</span>
         <span class="modal-price-amount">${fmt(p.price)}</span>
       </div>
+      <button class="modal-cart-btn" id="modalCartBtn"
+        onclick="addToCartBySku('${p.sku}', this)">
+        🛒 Agregar al carrito
+      </button>
       <a class="modal-wa-btn" href="${wa}" target="_blank" rel="noopener">
         💬 Consultar por WhatsApp
       </a>
@@ -2949,10 +2974,13 @@
     const p = PRODUCTS.find(x => x.sku === sku);
     if (!p) return;
     addToCart(p);
-    // Feedback visual en el botón
-    btn.textContent = '✓';
+    // Feedback visual: guarda el texto original y lo restaura (sirve para el
+    // botón-ícono de las cards y para el botón con label del modal)
+    const original = btn.dataset.label || btn.innerHTML;
+    btn.dataset.label = original;
+    btn.innerHTML = original.includes('Agregar') ? '✓ Agregado al carrito' : '✓';
     btn.classList.add('added');
-    setTimeout(() => { btn.textContent = '🛒'; btn.classList.remove('added'); }, 1000);
+    setTimeout(() => { btn.innerHTML = original; btn.classList.remove('added'); }, 1200);
     // Sacude el badge del nav
     const badge = $('cartBadge');
     badge.style.transform = 'scale(1.4)';
