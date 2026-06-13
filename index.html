@@ -1900,10 +1900,9 @@
      "Cualquier persona con el enlace puede ver" y usá esta URL:
      https://docs.google.com/spreadsheets/d/1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28/export?format=csv&gid=0
   ─────────────────────────────────────────────────────────── */
-  // Endpoint "publicado en la web" — funciona con la config actual de la hoja.
-  // (gviz/tq daría datos más frescos pero requiere compartir la hoja como
-  //  "cualquiera con el enlace puede ver", que actualmente NO está activo → da 401)
-  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRg56MwU9k7Ni6GA5gOlhPeWwnQ2F463UZSYWu6sw4Z32e7-p4NptsvI8QVFFjHdy5ay5IxdX_9rz7Y/pub?gid=1079902904&single=true&output=csv';
+  // gviz/tq lee los datos en vivo (sin el caché de ~5 min del endpoint /pub).
+  // Requiere que la hoja esté compartida como "cualquiera con el enlace → Lector".
+  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28/gviz/tq?tqx=out:csv&gid=1079902904';
 
   const WA_NUMBER = '5492646291571';
 
