@@ -1823,6 +1823,7 @@
   <div class="footer-bottom">
     <p>© 2026 TOGOAR · Todos los precios en pesos argentinos (ARS) · IVA incluido</p>
     <p>Octavio Gomez · San Juan, Argentina</p>
+    <p id="dataSourceIndicator" style="display:none;font-size:.65rem;margin-top:.5rem;opacity:.6;font-family:monospace;letter-spacing:.3px"></p>
   </div>
 </footer>
 
@@ -2644,7 +2645,8 @@
     const grid = $('productsGrid');
     grid.innerHTML = '';
 
-    const list = cat === 'todos' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+    const visible = PRODUCTS.filter(p => p.visible !== false);
+    const list    = cat === 'todos' ? visible : visible.filter(p => p.cat === cat);
 
     if (!list.length) {
       grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--c-muted);padding:3rem 0">Sin productos en esta categoría por ahora.</p>';
@@ -2783,7 +2785,7 @@
   async function loadFromSheets() {
     if (!SHEETS_CSV_URL) return false;
     try {
-      const res = await fetch(SHEETS_CSV_URL);
+      const res = await fetch(SHEETS_CSV_URL + '&_t=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) return false;
       const text = await res.text();
       const rows = parseCSV(text).slice(1); // skip header row
@@ -3043,10 +3045,22 @@
 
   /* ── INIT ────────────────────────────────────────────────── */
   (async () => {
-    await loadFromSheets();
+    const sheetOk = await loadFromSheets();
     renderProducts();
     renderCombos();
-    updateCartUI();   // restore cart from localStorage
+    updateCartUI();
+
+    // Indicador de fuente de datos (solo visible si tienes el Sheet conectado)
+    const ind = document.getElementById('dataSourceIndicator');
+    if (ind) {
+      const visibleCount = PRODUCTS.filter(p => p.visible !== false).length;
+      if (sheetOk) {
+        ind.innerHTML = `<span style="color:#22c55e">●</span> Hoja conectada — ${visibleCount} producto${visibleCount!==1?'s':''} visible${visibleCount!==1?'s':''}`;
+      } else {
+        ind.innerHTML = `<span style="color:#f59e0b">●</span> Datos locales — conectá la hoja para controlar visibilidad`;
+      }
+      ind.style.display = 'block';
+    }
   })();
 </script>
 
