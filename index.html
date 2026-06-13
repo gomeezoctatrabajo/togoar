@@ -1676,6 +1676,10 @@
     <span class="section-eyebrow">✦ Catálogo completo</span>
     <h2 class="section-title">Nuestros productos</h2>
     <p class="section-lead">Los que tienen <strong style="color:#22C55E">✅ EN STOCK</strong> están disponibles de inmediato en San Juan. Los demás se gestionan por encargo.</p>
+    <button id="refreshCatalogBtn" onclick="refreshCatalog()" title="Recargar catálogo desde la hoja"
+      style="margin-top:.75rem;background:none;border:1.5px solid #ede9fe;color:#7C3AED;border-radius:999px;padding:.35rem 1rem;font-size:.75rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s">
+      ⟳ Actualizar catálogo
+    </button>
   </div>
 
   <!-- Category tabs -->
@@ -1896,7 +1900,8 @@
      "Cualquier persona con el enlace puede ver" y usá esta URL:
      https://docs.google.com/spreadsheets/d/1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28/export?format=csv&gid=0
   ─────────────────────────────────────────────────────────── */
-  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRg56MwU9k7Ni6GA5gOlhPeWwnQ2F463UZSYWu6sw4Z32e7-p4NptsvI8QVFFjHdy5ay5IxdX_9rz7Y/pub?gid=1079902904&single=true&output=csv';
+  // gviz/tq lee los datos en vivo (sin caché de 5 min del endpoint /pub)
+  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/1XKhIpuecPk8VwNL5YqwmUkcfELlOiJPPiE46yjwnq28/gviz/tq?tqx=out:csv&gid=1079902904';
 
   const WA_NUMBER = '5492646291571';
 
@@ -3042,6 +3047,33 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+  /* ── REFRESH CATALOG ─────────────────────────────────────── */
+  async function refreshCatalog() {
+    const btn = document.getElementById('refreshCatalogBtn');
+    if (!btn) return;
+    btn.textContent = '⟳ Actualizando...';
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+
+    const ok = await loadFromSheets();
+    renderProducts(document.querySelector('.tab-btn.active')?.dataset.cat || 'todos');
+
+    const visibleCount = PRODUCTS.filter(p => p.visible !== false).length;
+    const ind = document.getElementById('dataSourceIndicator');
+    if (ind) {
+      ind.innerHTML = ok
+        ? `<span style="color:#22c55e">●</span> Hoja conectada — ${visibleCount} producto${visibleCount!==1?'s':''} visible${visibleCount!==1?'s':''}`
+        : `<span style="color:#f59e0b">●</span> Datos locales — conectá la hoja para controlar visibilidad`;
+    }
+
+    btn.textContent = ok ? '✓ Actualizado' : '⚠ Sin conexión';
+    btn.style.opacity = '1';
+    setTimeout(() => {
+      btn.textContent = '⟳ Actualizar catálogo';
+      btn.disabled = false;
+    }, 2000);
+  }
 
   /* ── INIT ────────────────────────────────────────────────── */
   (async () => {
